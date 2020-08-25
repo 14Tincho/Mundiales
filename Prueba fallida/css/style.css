@@ -1,0 +1,135 @@
+/* ----------------------HEADER--------------------- */
+
+body {
+    padding-top: 3rem;
+    height: 100vh;
+    background-image: url(../imagenes/background.jpg);
+    background-attachment: fixed;
+    background-size: cover; 
+}
+.contenedor-principal {
+    padding: 2rem 1.5rem;
+    /*text-align: center;*/
+}
+.navbar{
+    background-image: url(../imagenes/navbar.jpg);
+}
+h1, h2{
+    color: #ffffff;
+}
+.mt3r{
+    margin-top: 3rem;
+}
+
+/* ----------------------Index--------------------- */
+.index-copa{
+    margin-top: 40px;
+    height: 260px;
+}
+.registro{
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+.registro:hover{
+    color: #ffffff;
+}
+.h1-sesion{
+    font-size: 30px;
+}
+
+/* ----------------------Alta form--------------------- */
+.label-alta{
+    color: #ffffff;
+}
+.btn-alta{
+    margin-top: 25px;
+    color: #ffffff;
+    background-image: url(../imagenes/navbar.jpg); 
+}
+.btn-alta:hover{
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+
+
+/* ----------------------Fixture--------------------- */
+.label-fixture{
+    color: #ffffff;
+}
+.btn-fixture{
+    margin-top: 5px;
+    color: #ffffff;
+    background-image: url(../imagenes/navbar.jpg); 
+}
+.btn-fixture:hover{
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+
+/* ----------------------Fixturte form--------------------- */
+.div-form-alta{
+    margin-right: 4px; 
+    font-size: 20px;
+}
+.rounded-circle{
+    border: #ffffff  solid 2px;
+}
+
+
+
+
+
+
+/* ----------------------Tabla Listado--------------------- */
+.table-listado{
+    color: #ffffff;
+}
+
+
+.table-tfoot{
+    color: #ffffff;
+    background-image: url(../imagenes/navbar.jpg); 
+}
+.a-listado{
+    color: #ffffff;
+
+}
+.a-listado:hover{
+    color: #ffffff;
+}
+
+
+
+/* ----------------------Editar Form--------------------- */
+.label-editar{
+    color: #ffffff;
+}
+.btn-editar{
+    margin-top: 25px;
+    color: #ffffff;
+    background-image: url(../imagenes/navbar.jpg); 
+}
+.btn-editar:hover{
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+/* ----------------------Fixture Resultado--------------------- */
+.resultado-row{
+    padding-top: 25px;
+}
+.resultado-wrap{
+    padding: 2px 0;
+    width: 100%;
+    margin: 0 8px;
+}
+.div-bg{
+    border: rgb(255, 0, 0) solid 1px;
+    background-color: #ffffff;
+    /* color: rgb(0, 0, 0); */
+}
