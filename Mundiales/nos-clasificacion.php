@@ -18,8 +18,14 @@ while ($partido = mysqli_fetch_assoc($rs)) :
     $idEquipo2 = $partido['id_equipo2'];
     $goles1 = $partido['goles1'];
     $goles2 = $partido['goles2'];
- if (!empty($goles1)){
-      
+
+    // if (!empty($fixtureFase['goles1']) || $fixtureFase['goles1'] == "0") {
+    //     $goles1 = $fixtureFase['goles1'];
+    // }
+
+ if ((!empty($goles1) || $goles1 == "0") && (!empty($goles2) || $goles2 == "0")){
+// if ($goles2 !== NULL){
+    
 //------------- empate-----------------
     if ($goles1 == $goles2) {
 // ------------Equipo1 empate----------
@@ -121,12 +127,224 @@ while ($partido = mysqli_fetch_assoc($rs)) :
                 WHERE id_equipo = $idEquipo2";
                 $resu = mysqli_query($link, $sql);
             }
-            ?><pre><?php
-            var_dump($resu);
-            ?></pre><?php
+    }
+// -------cuando local gana------------
+if ($goles1 > $goles2) {
+    // ------------Equipo1 gana----------
+            $sql = "SELECT * FROM clasificacion WHERE id_equipo = $idEquipo1";
+            $res = mysqli_query($link, $sql);
+            $difGoles = $goles1 - $goles2;
+                if (mysqli_num_rows($res) !== 1 ) {
+                    $sql = "INSERT INTO clasificacion (
+                        id_equipo,
+                        pj,
+                        pg, 
+                        pe, 
+                        pp, 
+                        gf, 
+                        gc, 
+                        dg, 
+                        pts
+                        ) VALUES (
+                        $idEquipo1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        $goles1,
+                        $goles2,
+                        $difGoles,
+                        3
+                        )";
+                    $resu = mysqli_query($link, $sql);
+                }else {
+                    $updateclas = mysqli_fetch_assoc($res);
+                    $pj  = $updateclas['pj'];
+                    $pg  = $updateclas['pp']; 
+                    $gf  = $updateclas['gf']; 
+                    $gc  = $updateclas['gc']; 
+                    $dg  = $updateclas['dg']; 
+                    $pts = $updateclas['pts'];
+    
+                    $pj++;
+                    $pg++;
+                    $gf += $goles1;
+                    $gc += $goles2;
+                    $dg += $difGoles;
+                    $pts += 3;
+    
+                    $sql = "UPDATE clasificacion SET 
+                    pj=$pj,
+                    pg=$pg,
+                    gf=$gf,
+                    gc=$gc,
+                    dg=$dg,
+                    pts=$pts
+                    WHERE id_equipo = $idEquipo1";
+                    $resu = mysqli_query($link, $sql);
+                }
+    // ------------Equipo2 pierde----------
+
+            $sql = "SELECT * FROM clasificacion WHERE id_equipo = $idEquipo2";
+            $res = mysqli_query($link, $sql);
+            $difGoles = $goles2 - $goles1;
+                    if (mysqli_num_rows($res) !== 1 ) {
+                    $sql = "INSERT INTO clasificacion (
+                        id_equipo,
+                        pj,
+                        pg, 
+                        pe, 
+                        pp, 
+                        gf, 
+                        gc, 
+                        dg, 
+                        pts
+                        ) VALUES (
+                        $idEquipo2,
+                        1,
+                        0,
+                        0,
+                        1,
+                        $goles2,
+                        $goles1,
+                        $difGoles,
+                        0
+                        )";
+                    $resu = mysqli_query($link, $sql);
+                }else {
+                    $updateclas = mysqli_fetch_assoc($res);
+                    $pj  = $updateclas['pj'];
+                    $pp  = $updateclas['pp']; 
+                    $gf  = $updateclas['gf']; 
+                    $gc  = $updateclas['gc']; 
+                    $dg  = $updateclas['dg']; 
+    
+                    $pj++;
+                    $pp++;
+                    $gf += $goles2;
+                    $gc += $goles1;
+                    $dg += $difGoles;
+    
+                    $sql = "UPDATE clasificacion SET 
+                    pj=$pj,
+                    pp=$pp,
+                    gf=$gf,
+                    gc=$gc,
+                    dg=$dg
+                    WHERE id_equipo = $idEquipo2";
+                    $resu = mysqli_query($link, $sql);
+        }
+    }
+    // -------cuando visitante gana------------
+if ($goles1 < $goles2) {
+    // ------------Equipo2 gana----------
+            $sql = "SELECT * FROM clasificacion WHERE id_equipo = $idEquipo2";
+            $res = mysqli_query($link, $sql);
+            $difGoles = $goles2 - $goles1;
+                    if (mysqli_num_rows($res) !== 1 ) {
+
+                    $sql = "INSERT INTO clasificacion (
+                        id_equipo,
+                        pj,
+                        pg, 
+                        pe, 
+                        pp, 
+                        gf, 
+                        gc, 
+                        dg, 
+                        pts
+                        ) VALUES (
+                        $idEquipo2,
+                        1,
+                        1,
+                        0,
+                        0,
+                        $goles2,
+                        $goles1,
+                        $difGoles,
+                        3
+                        )";
+                    $resu = mysqli_query($link, $sql);
+                }else {
+                    $updateclas = mysqli_fetch_assoc($res);
+                    $pj  = $updateclas['pj'];
+                    $pg  = $updateclas['pp']; 
+                    $gf  = $updateclas['gf']; 
+                    $gc  = $updateclas['gc']; 
+                    $dg  = $updateclas['dg']; 
+                    $pts = $updateclas['pts'];
+    
+                    $pj++;
+                    $pg++;
+                    $gf += $goles2;
+                    $gc += $goles1;
+                    $dg += $difGoles;
+                    $pts += 3;
+    
+                    $sql = "UPDATE clasificacion SET 
+                    pj=$pj,
+                    pg=$pg,
+                    gf=$gf,
+                    gc=$gc,
+                    dg=$dg,
+                    pts=$pts
+                    WHERE id_equipo = $idEquipo2";
+                    $resu = mysqli_query($link, $sql);
+                }
+    // ------------Equipo1 pierde----------
+
+            $sql = "SELECT * FROM clasificacion WHERE id_equipo = $idEquipo1";
+            $res = mysqli_query($link, $sql);
+            $difGoles = $goles1 - $goles2;
+                    if (mysqli_num_rows($res) !== 1 ) {
+                    $sql = "INSERT INTO clasificacion (
+                        id_equipo,
+                        pj,
+                        pg, 
+                        pe, 
+                        pp, 
+                        gf, 
+                        gc, 
+                        dg, 
+                        pts
+                        ) VALUES (
+                        $idEquipo1,
+                        1,
+                        0,
+                        0,
+                        1,
+                        $goles1,
+                        $goles2,
+                        $difGoles,
+                        0
+                        )";
+                    $resu = mysqli_query($link, $sql);
+                }else {
+                    $updateclas = mysqli_fetch_assoc($res);
+                    $pj  = $updateclas['pj'];
+                    $pp  = $updateclas['pp']; 
+                    $gf  = $updateclas['gf']; 
+                    $gc  = $updateclas['gc']; 
+                    $dg  = $updateclas['dg']; 
+                    $pj++;
+                    $pp++;
+                    $gf += $goles1;
+                    $gc += $goles2;
+                    $dg += $difGoles;
+                    $sql = "UPDATE clasificacion SET 
+                    pj=$pj,
+                    pp=$pp,
+                    gf=$gf,
+                    gc=$gc,
+                    dg=$dg
+                    WHERE id_equipo = $idEquipo1";
+                    $resu = mysqli_query($link, $sql);
+        }
     }
 }
 
-    endwhile;
+
+endwhile;
+
 
 mysqli_close($link);
