@@ -29,8 +29,8 @@ if(!empty($errores)) {
 
 // doy de alta el registro
     $ano = ANO;
-    $sql = "INSERT INTO partidos (fase, partido, id_equipo1, id_equipo2, goles1, goles2, penales1, penales2, anio) VALUES 
-    ( 'F','$nropartido', '$idEquipo1', '$idEquipo2', '$goles1', '$goles2', '$penales1', '$penales2', $ano)";
+    $sql = "INSERT INTO partidos (fase, partido, id_equipo1, id_equipo2, anio) VALUES 
+    ( 'F','$nropartido', '$idEquipo1', '$idEquipo2', $ano)";
     $rs = mysqli_query($link, $sql);
 
     if (!$rs) {
@@ -48,10 +48,6 @@ if(!empty($errores)) {
         $nropartido = '';
         $equipo1 = '';
         $equipo2 = '';
-        $goles1 = '';
-        $goles2 = '';
-        $penales1 = '';
-        $penales2 = '';
     }
     mysqli_close($link);
 }

@@ -18,6 +18,7 @@ $errores = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include 'nos-partidos-validar.php';
     include 'nos-partidos-alta-DB.php';
+    include 'nos-clasificacion.php';
 }
 include 'nos-partidos-alta-form.php';
 include 'footer.php';

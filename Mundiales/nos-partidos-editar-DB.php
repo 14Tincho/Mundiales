@@ -20,6 +20,7 @@ $goles2 = mysqli_real_escape_string($link, $goles2);
 $penales1 = mysqli_real_escape_string($link, $penales1);
 $penales2 = mysqli_real_escape_string($link, $penales2);
 
+
     // Busco el id de equipo1 y de equipo2
     $sql = "SELECT id_equipo FROM equipos WHERE nombre = '$equipo1'";             
     $rs = mysqli_query($link, $sql);
@@ -39,10 +40,22 @@ $penales2 = mysqli_real_escape_string($link, $penales2);
     $array_equipo = mysqli_fetch_assoc($rs);
     $idEquipo2 = $array_equipo['id_equipo'];
 
-$sql = "UPDATE partidos SET partido = $nropartido, id_equipo1 = $idEquipo1, id_equipo2 = $idEquipo2, goles1 = $goles1, goles2 = $goles2, penales1 = $penales1, penales2 = $penales2 WHERE id_partido = $id_editar";
-$rs = mysqli_query($link, $sql);
-mysqli_close($link);
-
+    if (empty($penales1)) {
+        $penales1 = NULL;
+    }
+    if (empty($penales2)) {
+        $penales2 = NULL;
+    }
+var_dump($penales1);
+if ($penales1 == NULL && $penales2 == NULL) {
+    $sql = "UPDATE partidos SET partido = $nropartido, id_equipo1 = $idEquipo1, id_equipo2 = $idEquipo2, goles1 = $goles1, goles2 = $goles2 WHERE id_partido = $id_editar";
+    $rs = mysqli_query($link, $sql);
+    mysqli_close($link);
+}else {    
+    $sql = "UPDATE partidos SET partido = $nropartido, id_equipo1 = $idEquipo1, id_equipo2 = $idEquipo2, goles1 = $goles1, goles2 = $goles2, penales1 = $penales1, penales2 = $penales2 WHERE id_partido = $id_editar";
+    $rs = mysqli_query($link, $sql);
+    mysqli_close($link);
+}
 header('Location: nos-partidos-listado.php');
 
 }

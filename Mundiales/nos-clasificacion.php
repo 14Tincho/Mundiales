@@ -160,7 +160,7 @@ if ($goles1 > $goles2) {
                 }else {
                     $updateclas = mysqli_fetch_assoc($res);
                     $pj  = $updateclas['pj'];
-                    $pg  = $updateclas['pp']; 
+                    $pg  = $updateclas['pg']; 
                     $gf  = $updateclas['gf']; 
                     $gc  = $updateclas['gc']; 
                     $dg  = $updateclas['dg']; 
@@ -268,7 +268,7 @@ if ($goles1 < $goles2) {
                 }else {
                     $updateclas = mysqli_fetch_assoc($res);
                     $pj  = $updateclas['pj'];
-                    $pg  = $updateclas['pp']; 
+                    $pg  = $updateclas['pg']; 
                     $gf  = $updateclas['gf']; 
                     $gc  = $updateclas['gc']; 
                     $dg  = $updateclas['dg']; 

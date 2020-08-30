@@ -53,18 +53,20 @@ if ($equipo1 == $equipo2) {
 if ($grupo1 != $grupo2) {
     $errores .= 'Los equipos deben pertenecer al mismo grupo.<br>';
 }else{
-    include 'conexion.php';
-    $sql = "SELECT
-            p.partido,
-            e.grupo
-            FROM 
-            partidos p
-            LEFT JOIN equipos e ON e.id_equipo = p.id_equipo1
-            WHERE p.partido = '$nropartido' AND e.grupo='$grupo1';";
-    $rs = mysqli_query($link,$sql);
-    mysqli_close($link);
-    if (mysqli_num_rows($rs) >= 1){
-    $errores .= " Se repite el numero de partido '$nropartido' en el grupo '$grupo1' .<br>";
+        if ($nropartido != $nropartidoAnt) {
+            include 'conexion.php';
+            $sql = "SELECT
+                    p.partido,
+                    e.grupo
+                    FROM 
+                    partidos p
+                    LEFT JOIN equipos e ON e.id_equipo = p.id_equipo1
+                    WHERE p.partido = '$nropartido' AND e.grupo='$grupo1';";
+            $rs = mysqli_query($link,$sql);
+            mysqli_close($link);
+            if (mysqli_num_rows($rs) >= 1){
+            $errores .= " Se repite el numero de partido '$nropartido' en el grupo '$grupo1' .<br>";
+        }
     }
 }
 
