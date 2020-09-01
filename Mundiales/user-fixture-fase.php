@@ -1,5 +1,5 @@
 <?php
-    include 'conexion.php';
+    require 'conexion.php';
     $errores = '';
     $anio = ANO;          
 

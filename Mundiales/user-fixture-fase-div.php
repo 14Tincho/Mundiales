@@ -53,42 +53,8 @@
 
            
 <!-- -----------------tabla clasificacion de la fase de grupos ------------------ -->
-            <div class="separacion"></div>
-            <?php for ($j='A'; $j <= 'H' ; $j++) {  ?>
-            <div class="col-lg-6 table-responsive-sm">
-            <h5 class="text-white text-left col-12">Grupo <?=$j?></h5>
-                <table class="table table-danger table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Equipo</th>
-                            <th scope="col">PJ</th>
-                            <th scope="col">PG</th>
-                            <th scope="col">PE</th>
-                            <th scope="col">PP</th>
-                            <th scope="col">GF</th>
-                            <th scope="col">GC</th>
-                            <th scope="col">DF</th>
-                            <th scope="col">PTS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php for ($i=1; $i < 5 ; $i++){ ?>
-                        <tr>
-                            <th scope="row">Argentina</th>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td><strong>0</strong></td>
-                        </tr>
-                        <?php }?>
-                    </tbody>
-                </table>
-            </div>
-            <?php } ?>
+    
+    <?php  include 'user-fixture-fase-DB.php'; ?>
         </div>
     </form>
 </div>

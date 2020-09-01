@@ -1,25 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Document</title>
-</head>
-<body>
 <?php
 
-require_once 'conexion.php';
+require 'conexion.php';
 
-$sql = "SELECT * FROM clasificacion";
+$sql = 'SELECT
+c.id_equipo,
+c.pj,
+c.pg,
+c.pe,
+c.pp,
+c.gf,
+c.gc,
+c.dg,
+c.pts,
+e.grupo,
+e.nombre equipo
+
+FROM
+clasificacion c
+LEFT JOIN equipos e ON e.id_equipo = c.id_equipo
+ORDER BY e.grupo , c.pts DESC , c.dg DESC, c.gf DESC;';
+
 
 $rs = mysqli_query($link, $sql);
+if (!$rs) {
+    header('Location: pagina-error.php?error=2 & detalle=Error en la consulta');
+    die;
+}
 
 mysqli_close($link);
+
+
         for ($j='A'; $j <= 'H' ; $j++) {  ?>
         <div class="col-lg-6 table-responsive-sm">
         <h5 class="text-white text-left col-12">Grupo <?=$j?></h5>
-            <table class="table table-success table-striped">
+            <table class="table table-danger table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Equipo</th>
@@ -33,10 +47,14 @@ mysqli_close($link);
                         <th scope="col">PTS</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                        <?php while ($clasificacion = mysqli_fetch_assoc($rs)) :?>
+                    <?php for ($i=1; $i < 5 ; $i++){ 
+                    $clasificacion = mysqli_fetch_assoc($rs);
+                    ?>
+                            
                         <tr>
-                            <td><?= $clasificacion['id_equipo'] ?></td>
+                            <td><?=$clasificacion['equipo'] ?></td>
                             <td><?=$clasificacion['pj']?></td>
                             <td><?=$clasificacion['pg']?></td>
                             <td><?=$clasificacion['pe']?></td>
@@ -44,13 +62,10 @@ mysqli_close($link);
                             <td><?=$clasificacion['gf']?></td>
                             <td><?=$clasificacion['gc']?></td>
                             <td><?=$clasificacion['dg']?></td>
-                            <td><?=$clasificacion['dg']?></td>
                             <td><?=$clasificacion['pts']?></td>
                         </tr>
-                        <?php endwhile; ?>
+                        <?php } ?>
                 </tbody>
             </table>
         </div>
-        <?php } ?>
-</body>
-</html>
+        <?php } 
