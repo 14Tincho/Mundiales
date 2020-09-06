@@ -3,7 +3,7 @@
 include 'conexion.php';
 $anio = ANO;
 
-$sql = "TRUNCATE TABLE clasificacion";
+$sql = "DELETE FROM clasificacion WHERE anio = $anio";
 $rs = mysqli_query($link, $sql);
 
 
@@ -41,7 +41,8 @@ while ($partido = mysqli_fetch_assoc($rs)) :
                     gf, 
                     gc, 
                     dg, 
-                    pts
+                    pts,
+                    anio
                     ) VALUES (
                     $idEquipo1,
                     1,
@@ -51,7 +52,8 @@ while ($partido = mysqli_fetch_assoc($rs)) :
                     $goles1,
                     $goles2,
                     0,
-                    1
+                    1,
+                    $anio
                     )";
                 $resu = mysqli_query($link, $sql);
             }else {
@@ -91,7 +93,8 @@ while ($partido = mysqli_fetch_assoc($rs)) :
                 gf, 
                 gc, 
                 dg, 
-                pts
+                pts,
+                anio
                 ) VALUES (
                 $idEquipo2,
                 1,
@@ -101,7 +104,8 @@ while ($partido = mysqli_fetch_assoc($rs)) :
                 $goles2,
                 $goles1,
                 0,
-                1
+                1,
+                $anio
                 )";
             $resu = mysqli_query($link, $sql);
             }else {
@@ -144,7 +148,8 @@ if ($goles1 > $goles2) {
                         gf, 
                         gc, 
                         dg, 
-                        pts
+                        pts,
+                        anio
                         ) VALUES (
                         $idEquipo1,
                         1,
@@ -154,7 +159,8 @@ if ($goles1 > $goles2) {
                         $goles1,
                         $goles2,
                         $difGoles,
-                        3
+                        3,
+                        $anio
                         )";
                     $resu = mysqli_query($link, $sql);
                 }else {
@@ -198,7 +204,8 @@ if ($goles1 > $goles2) {
                         gf, 
                         gc, 
                         dg, 
-                        pts
+                        pts,
+                        anio
                         ) VALUES (
                         $idEquipo2,
                         1,
@@ -208,7 +215,8 @@ if ($goles1 > $goles2) {
                         $goles2,
                         $goles1,
                         $difGoles,
-                        0
+                        0,
+                        $anio
                         )";
                     $resu = mysqli_query($link, $sql);
                 }else {
@@ -252,7 +260,8 @@ if ($goles1 < $goles2) {
                         gf, 
                         gc, 
                         dg, 
-                        pts
+                        pts,
+                        anio
                         ) VALUES (
                         $idEquipo2,
                         1,
@@ -262,7 +271,8 @@ if ($goles1 < $goles2) {
                         $goles2,
                         $goles1,
                         $difGoles,
-                        3
+                        3,
+                        $anio
                         )";
                     $resu = mysqli_query($link, $sql);
                 }else {
@@ -306,7 +316,8 @@ if ($goles1 < $goles2) {
                         gf, 
                         gc, 
                         dg, 
-                        pts
+                        pts,
+                        anio
                         ) VALUES (
                         $idEquipo1,
                         1,
@@ -316,7 +327,8 @@ if ($goles1 < $goles2) {
                         $goles1,
                         $goles2,
                         $difGoles,
-                        0
+                        0,
+                        $anio
                         )";
                     $resu = mysqli_query($link, $sql);
                 }else {

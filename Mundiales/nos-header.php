@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-    <a class="navbar-brand" href="nos-index.php">Mundiales</a>
+    <a class="navbar-brand" href="nos-index.php"><?= $titulo ?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_principal"
             aria-controls="navbar_principal" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
