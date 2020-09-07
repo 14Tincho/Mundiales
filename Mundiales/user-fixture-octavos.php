@@ -1,6 +1,6 @@
 <?php
 
-require 'config.php';
+// require 'config.php';
 require 'conexion.php';
 $anio = ANO;
 
@@ -23,7 +23,6 @@ $rs = mysqli_query($link, $sql);
 
 if (!$rs) {
     header('Location: pagina-error.php?error=2 & detalle=Error en la consulta');
-        
     die;
 }
 
@@ -37,18 +36,9 @@ $idEquipo = $clasificacion['id_equipo'];
 if ($i == 4) {
     $i=0;
 }
-
     $i++;
     var_dump($i);
-    die; 
-
-   
-
-
 //for ($j='A'; $j <= 'H'; $j++) { 
-
-    
-
   //for ($i=1; $i <=4 ; $i++) {     
     if ($i > 2)  {
         goto abajo1;
