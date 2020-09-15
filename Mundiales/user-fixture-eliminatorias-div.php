@@ -13,7 +13,9 @@
         e.grupo 
         FROM octavos o 
         LEFT JOIN equipos e ON e.id_equipo = o.id_equipo 
-        WHERE o.anio = $anio";
+        WHERE o.anio = $anio
+        ORDER BY o.nropartido , o.posicion";
+        
         $rs = mysqli_query($link, $sql);
         if (!$rs) {
             header('Location: pagina-error.php?error=2 & detalle=Error en la consulta');                    
@@ -39,8 +41,8 @@
 
 
             <?php $j++;
-            ?><div class="form-group col-lg-3"><?php
             if($j %2 == 0) { ?>
+            <div class="form-group col-lg-3">
             <h6 class="text-white">Partido <?= $nroPartido ?></h6>
             <div class="form-row resultado-wrap ">
                 <div class="col-2 octavos"><span class="fixtureGoles"><?=$grupo . $posicion?></span></div>
@@ -57,8 +59,8 @@
                 <div class="col-2 octavos"><span class="fixtureGoles"><?=$goles?></span></div>
                 <div class="col-2 octavos"><span class="fixtureGoles">(<?=$penales?>)</span></div>
             </div>
+            </div>
             <?php }
-            ?></div><?php
         }?>
                     
         <?php endwhile; ?>
