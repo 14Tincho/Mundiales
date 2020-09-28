@@ -38,8 +38,6 @@
             $penales = '-';
         }
         if ($nroPartido <= 52) {?>
-
-
             <?php $j++;
             if($j %2 == 0) { ?>
             <div class="form-group col-lg-3">
@@ -61,31 +59,29 @@
             </div>
             </div>
             <?php }
-        }?>
-                    
-        <?php endwhile; ?>
-
-
+        }else {
+            $j++;
+            if($j %2 == 0) { ?>
+            <div class="form-group col-lg-3">
+            <h6 class="text-white">Partido <?= $nroPartido ?></h6>
+            <div class="form-row resultado-wrap ">
+                <div class="col-2 octavos"><span class="fixtureGoles"><?=$grupo . $posicion?></span></div>
+                <div class="col-6 div-bg"><?=$nombre?></div> 
+                <div class="col-2 octavos"><span class="fixtureGoles"><?=$goles?></span></div>
+                <div class="col-2 octavos"><span class="fixtureGoles">(<?=$penales?>)</span></div>
+            </div>
 
             <?php
-            $l = array("B","D", "F", "H");
-            $k = array("A","C", "E", "G");
-            $values = array_combine($l, $k);
-            foreach ($values as $lk => $score)  { 
-                ?>
+            }else {?>
+            <div class="form-row resultado-wrap ">
+                <div class="col-2 octavos"><span class="fixtureGoles"><?=$grupo . $posicion?></span></div>
+                <div class="col-6 div-bg"><?=$nombre?></div> 
+                <div class="col-2 octavos"><span class="fixtureGoles"><?=$goles?></span></div>
+                <div class="col-2 octavos"><span class="fixtureGoles">(<?=$penales?>)</span></div>
+            </div>
+            </div>
+            <?php }
+        }?>
+            
                     
-                    <div class="form-group col-lg-3 d-block">
-                    <h6 class="text-white">Partido <?= $nroPartido ?></h6>  
-                    <div class="form-row resultado-wrap">
-                        <div class="col-2 octavos"><span class="fixtureGoles"><?=$lk . 1?></span></div>
-                        <div class="col-6 div-bg">Rusia</div> 
-                        <div class="col-2 octavos"><span class="fixtureGoles">-</span></div>                                          
-                        <div class="col-2 octavos"><span class="fixtureGoles">(-)</span></div>                                          
-                        <div class="col-2 octavos"><span class="fixtureGoles"><?=$score . 2?></span></div>
-                        <div class="col-6 div-bg">Egipto</div> 
-                        <div class="col-2 octavos"><span class="fixtureGoles">-</span></div>                               
-                        <div class="col-2 octavos"><span class="fixtureGoles">(15)</span></div>                               
-                    </div>
-                </div>           
-               <?php } ?>
-</div>
+        <?php endwhile;?>

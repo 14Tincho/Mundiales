@@ -4,6 +4,10 @@
 require 'conexion.php';
 $anio = ANO;
 
+$sql = "DELETE FROM octavos WHERE anio = $anio";
+$rs = mysqli_query($link, $sql);
+
+
 $sql = "SELECT
 c.id_equipo,
 c.gf,
