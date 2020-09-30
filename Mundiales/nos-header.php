@@ -27,12 +27,22 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="menu_partidos" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">Partidos</a>
+                   aria-expanded="false">Partidos de fase</a>
                 <div class="dropdown-menu" aria-labelledby="menu_partidos">
                     <a class="dropdown-item" href="nos-partidos-alta.php">Alta de partidos</a>
                     <a class="dropdown-item" href="nos-partidos-listado.php">ABM de partidos</a>
                 </div>
-            </li>    
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="menu_partidos" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Partidos de eliminatorias</a>
+                <div class="dropdown-menu" aria-labelledby="menu_partidos">
+                    <a class="dropdown-item" href="nos-octavos-listado.php">Octavos</a>
+                    <a class="dropdown-item" href="nos-cuartos-listado.php">Cuartos</a>
+                    <a class="dropdown-item" href="nos-semifinal-listado.php">Semifinal</a>
+                    <a class="dropdown-item" href="nos-final-listado.php">Final</a>
+                </div>
+            </li>        
             <li class="nav-item">
                 <a class="nav-link" href="login-derivar.php" onclick="return confirm('¿Seguro que quiere cerrar sesión?');">Cerrar Sesión</a>
             </li>

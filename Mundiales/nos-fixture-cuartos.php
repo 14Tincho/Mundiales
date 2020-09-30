@@ -1,6 +1,5 @@
 <?php
 
-// require 'config.php';
 require 'conexion.php';
 $anio = ANO;
 
@@ -31,9 +30,6 @@ $i = 0;
 $j = 56;
 while ($octavos = mysqli_fetch_assoc($rs)):
 $idEquipo = $octavos['id_equipo'];
-
-
-
     if ($i == 2)  {
         $i = 0;
     }
