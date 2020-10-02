@@ -10,8 +10,6 @@
             p.partido,
             p.goles1,
             p.goles2,
-            p.penales1,
-            p.penales2,
             e.nombre equipo1,
             eq.nombre equipo2
         FROM 
@@ -33,10 +31,8 @@
             $nropartido = $partidosEditar['partido'];
             $equipo1 = $partidosEditar['equipo1'];
             $goles1 = $partidosEditar['goles1'];
-            $penales1 = $partidosEditar['penales1'];
             $equipo2 = $partidosEditar['equipo2'];
             $goles2 = $partidosEditar['goles2'];
-            $penales2 = $partidosEditar['penales2'];
 
             $nropartidoAnt = $partidosEditar['partido'];
             $equipo1Ant = $partidosEditar['equipo1'];;
@@ -60,8 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $equipo2 = $_POST['equipo2'] ?? '';
     $goles1 = $_POST['goles1'] ?? '';
     $goles2 = $_POST['goles2'] ?? '';
-    $penales1 = $_POST['penales1'] ?? '';
-    $penales2 = $_POST['penales2'] ?? '';
+
    
     include 'nos-partidos-editar-validar.php';
     include 'nos-partidos-editar-DB.php';

@@ -3,15 +3,12 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Fase</th>
             <th>Grupo</th>
             <th>N° Partido</th>
             <th>Equipo 1</th>
             <th>Goles 1</th>
-            <th>Penales 1</th>
             <th>Equipo 2</th>
             <th>Goles 2</th>
-            <th>Penales 2</th>
             <th></th>
             <th></th>
         </tr>
@@ -20,15 +17,12 @@
         <?php while ($partido = mysqli_fetch_assoc($rs)) :?>
         <tr class="text-white">
             <td><?= $partido['id_partido'] ?></td>
-            <td><?= $partido['fase'] ?></td>
             <td><?= $partido['grupo']?></td>
             <td><?= $partido['partido'] ?></td>
             <td><strong><?= $partido['equipo1'] ?></strong></td>
             <td><?= $partido['goles1'] ?></td>
-            <td><?= $partido['penales1'] ?></td>
             <td><strong><?= $partido['equipo2'] ?></strong></td>
             <td><?= $partido['goles2'] ?></td>
-            <td><?= $partido['penales2'] ?></td>
             <td>
                 <a href="nos-partidos-editar.php?id_editar=<?= $partido['id_partido'] ?>" class="a-listado">Editar</a>
             </td>

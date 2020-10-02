@@ -11,8 +11,6 @@ $equipo1 = $_POST['equipo1'] ?? '';
 $equipo2 = $_POST['equipo2'] ?? '';
 $goles1 = $_POST['goles1'] ?? ''; 
 $goles2 = $_POST['goles2'] ?? '';
-$penales1 = $_POST['penales1'] ?? '';
-$penales2 = $_POST['penales2'] ?? '';
 $errores = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

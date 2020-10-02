@@ -5,12 +5,9 @@ $anio = ANO;
 
 $sql = "SELECT
 p.id_partido,
-p.fase,
 p.partido,
 p.goles1,
 p.goles2,
-p.penales1,
-p.penales2,
 p.anio,
 e.grupo,
 e.nombre equipo1,

@@ -42,14 +42,6 @@
                 <label for="goles2" class="label-alta">Goles del equipo 2</label>
                 <input type="text" class="form-control" id="goles2" name="goles2" value="<?= $goles2 ?>">
             </div>
-            <div class="form-group col-sm-12">
-                <label for="penales1" class="label-alta">Penales del equipo 1</label>
-                <input type="text" class="form-control" id="penales1" name="penales1" value="<?= $penales1 ?>">
-            </div>
-            <div class="form-group col-sm-12">
-                <label for="penales2" class="label-alta">Penales del equipo 2</label>
-                <input type="text" class="form-control" id="penales2" name="penales2" value="<?= $penales2 ?>">
-            </div>
         <button type="submit" class="btn btn-alta">Modificar</button>
     </form>
 </div>
