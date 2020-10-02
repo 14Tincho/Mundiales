@@ -1,8 +1,8 @@
 <?php
     include 'conexion.php';
 
-    $ano = ANO;
-    $sql = "SELECT nombre FROM `equipos` WHERE anio = $ano ORDER BY nombre";
+    $anio = ANO;
+    $sql = "SELECT nombre FROM `equipos` WHERE anio = $anio ORDER BY nombre";
     $rs = mysqli_query($link, $sql);
     $equipos = array();
     $cantidad = mysqli_num_rows($rs);

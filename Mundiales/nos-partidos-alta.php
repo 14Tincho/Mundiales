@@ -1,7 +1,7 @@
 <?php 
+include 'config.php'; 
 $titulo = 'Alta de partidos';
 include 'nos-header.php';
-include 'config.php'; 
 ?>
 <h1 class="d-flex justify-content-center"><?=  SEDE . ' ' . ANO ?></h1>
 <h2 class="d-flex justify-content-center"><?=$titulo?></h2>

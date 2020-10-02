@@ -42,16 +42,8 @@
             $penales2 = $octavosEditar['penales'];
         }       
         endwhile;
-        var_dump($nropartido,
-        $equipo1,
-        $goles1,
-        $penales1,
-        $equipo2,
-        $goles2,
-        $penales2);
-        die;    
-// ************************** ACA QUEDAMOS PUTA*********************************
-$titulo = 'Edicion de octavos';
+
+$titulo = 'Edicion de Cuartos';
 include 'nos-header.php';
 ?>
 <h1 class="d-flex justify-content-center"><?= SEDE . ' ' .ANO ?></h1>
@@ -66,13 +58,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $goles2 = $_POST['goles2'] ?? '';
     $penales1 = $_POST['penales1'] ?? '';
     $penales2 = $_POST['penales2'] ?? '';
-   
-    include 'nos-partidos-editar-validar.php';
-    include 'nos-partidos-editar-DB.php';
-    include 'nos-clasificacion.php';
-    include 'nos-fixture-octavos.php';
+    
+
+    include 'nos-octavos-editar-validar.php';
+    include 'nos-octavos-editar-DB.php';
+    die;
+    include 'nos-cuartos.php';
+    include 'nos-fixture-cuartos.php';
 }
 
-include 'nos-partidos-editar-form.php';
+include 'nos-octavos-editar-form.php';
 include 'footer.php';
 
