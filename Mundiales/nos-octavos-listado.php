@@ -32,7 +32,7 @@ $cantidad_de_partidos = mysqli_num_rows($rs) / 2;
 $titulo = 'Listado de octavos';
 include 'nos-header.php';
 ?>
-    <h1 class="text-center"><?= $titulo ?></h1>
+    <h1 class="m20"><?= $titulo ?></h1>
 <?php
 if ($cantidad_de_partidos > 0) {
     include 'nos-octavos-listado-tabla.php';

@@ -4,7 +4,7 @@ $titulo = 'Alta de Equipos';
 include 'nos-header.php';
 ?>
 <h1 class="d-flex justify-content-center"><?=  SEDE . ' ' . ANO ?></h1>
-<h2 class="d-flex justify-content-center"><?=$titulo?></h2>
+<h2 class="d-flex justify-content-center marginBottom30"><?=$titulo?></h2>
 <?php
 $nombre = $_POST['nombre'] ?? '';
 $grupo = $_POST['grupo'] ?? ''; 

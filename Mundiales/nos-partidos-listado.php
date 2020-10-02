@@ -38,7 +38,7 @@ $cantidad_de_partidos = mysqli_num_rows($rs);
 $titulo = 'Listado de partidos';
 include 'nos-header.php';
 ?>
-    <h1><?= $titulo ?></h1>
+    <h1 class="marginBottom40"><?= $titulo ?></h1>
 <?php
 if ($cantidad_de_partidos > 0) {
     include 'nos-partidos-listado-tabla.php';

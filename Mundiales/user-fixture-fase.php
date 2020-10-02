@@ -1,4 +1,5 @@
 <?php
+    include 'user-inicio-sesion.php';
     require 'conexion.php';
     $errores = '';
     $anio = ANO;          

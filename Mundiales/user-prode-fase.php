@@ -1,6 +1,6 @@
 <?php
-    include 'conexion.php';
     include 'user-inicio-sesion.php';
+    include 'conexion.php';
     $errores = '';
     $anio = ANO;
 

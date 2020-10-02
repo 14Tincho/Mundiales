@@ -17,6 +17,12 @@
 .sinM{
     margin: 0;
 }
+.marginBottom40{
+    margin: 40px;
+}
+.marginBottom30{
+    margin: 30px;
+}
 
 /* ----------------------HEADER--------------------- */
 body {
