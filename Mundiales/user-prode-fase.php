@@ -112,7 +112,7 @@ else {
                 LEFT JOIN equipos e ON e.id_equipo = p.id_equipo1
                 LEFT JOIN equipos eq ON eq.id_equipo = p.id_equipo2
                 LEFT JOIN $prodeUser pr ON pr.id_partido = p.id_partido
-                WHERE p.fase ='F' AND p.anio = $anio 
+                WHERE p.anio = $anio 
                 ORDER BY e.grupo, p.partido";
                 
                 $rs = mysqli_query($link, $sql);

@@ -1,49 +1,49 @@
 <?php
     $errores = '';
     if (!isset($_GET['id_editar'])) {
-        header('Location: nos-octavos-listado.php');
+        header('Location: nos-cuartos-listado.php');
         die;
     }  else {
         include 'conexion.php';
 
         $sql = 'SELECT
-            o.id_octavo,
-            o.nropartido,
-            o.posicion,
-            o.goles,
-            o.penales,
-            o.anio,
+            c.id_cuarto,
+            c.nropartido,
+            c.posicion,
+            c.goles,
+            c.penales,
+            c.anio,
             e.nombre equipo
         FROM 
-            octavos o
-        LEFT JOIN equipos e ON e.id_equipo = o.id_equipo
-        WHERE o.nropartido =' .  $_GET['id_editar'];
+            cuartos c
+        LEFT JOIN equipos e ON e.id_equipo = c.id_equipo
+        WHERE c.nropartido =' .  $_GET['id_editar'];
     
 
         $rs = mysqli_query($link, $sql);
         mysqli_close($link);
             if (mysqli_num_rows($rs) !== 2 ) {
-                header('Location: nos-octavos-listado.php');
+                header('Location: nos-cuartos-listado.php');
                 die;
             }
     }           
         $i = 0;
-        while ($octavosEditar = mysqli_fetch_assoc($rs)) :
+        while ($cuartosEditar = mysqli_fetch_assoc($rs)) :
         $i++;
         if ($i == 1 ) {
-            $nropartido = $octavosEditar['nropartido'];
-            $equipo1 = $octavosEditar['equipo'];
-            $goles1 = $octavosEditar['goles'];
-            $penales1 = $octavosEditar['penales'];
+            $nropartido = $cuartosEditar['nropartido'];
+            $equipo1 = $cuartosEditar['equipo'];
+            $goles1 = $cuartosEditar['goles'];
+            $penales1 = $cuartosEditar['penales'];
         }
         if ($i == 2) {
-            $equipo2 = $octavosEditar['equipo'];
-            $goles2 = $octavosEditar['goles'];
-            $penales2 = $octavosEditar['penales'];
+            $equipo2 = $cuartosEditar['equipo'];
+            $goles2 = $cuartosEditar['goles'];
+            $penales2 = $cuartosEditar['penales'];
         }       
         endwhile;
 
-$titulo = 'Edicion de Octavos';
+$titulo = 'Edicion de Cuartos';
 include 'nos-header.php';
 ?>
 <h1 class="d-flex justify-content-center"><?= SEDE . ' ' .ANO ?></h1>
@@ -60,10 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $penales2 = $_POST['penales2'] ?? '';
     
 
-    include 'nos-octavos-editar-validar.php';
-    include 'nos-octavos-editar-DB.php';
+    include 'nos-cuartos-editar-validar.php';
+    include 'nos-cuartos-editar-DB.php';
 }
 
-include 'nos-octavos-editar-form.php';
+include 'nos-cuartos-editar-form.php';
 include 'footer.php';
 
