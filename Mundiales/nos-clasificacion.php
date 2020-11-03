@@ -7,7 +7,7 @@ $sql = "DELETE FROM clasificacion WHERE anio = $anio";
 $rs = mysqli_query($link, $sql);
 
 
-$sql = "SELECT id_equipo1, id_equipo2, goles1, goles2 FROM partidos WHERE anio = $anio AND fase = 'F';";
+$sql = "SELECT id_equipo1, id_equipo2, goles1, goles2 FROM partidos WHERE anio = $anio";
 
 $rs = mysqli_query($link, $sql);
 

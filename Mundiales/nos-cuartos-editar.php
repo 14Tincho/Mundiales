@@ -62,6 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     include 'nos-cuartos-editar-validar.php';
     include 'nos-cuartos-editar-DB.php';
+    include 'nos-fixture-semis.php';
+    
 }
 
 include 'nos-cuartos-editar-form.php';
