@@ -5,8 +5,9 @@
         die;
     }  else {
         include 'conexion.php';
+        $editar = $_GET["id_editar"];
 
-        $sql = 'SELECT
+        $sql = "SELECT
             o.id_octavo,
             o.nropartido,
             o.posicion,
@@ -17,7 +18,8 @@
         FROM 
             octavos o
         LEFT JOIN equipos e ON e.id_equipo = o.id_equipo
-        WHERE o.nropartido =' .  $_GET['id_editar'];
+        WHERE o.nropartido = $editar
+        ORDER BY O.posicion";
     
 
         $rs = mysqli_query($link, $sql);

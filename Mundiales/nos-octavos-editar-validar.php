@@ -18,7 +18,12 @@ if ($goles1 != $goles2) {
             $errores .= 'Los penales no pueden terminar en empate.<br>';
         }    
     }
+}else {
+    if ($penales1 == $penales2) {
+        $errores = "Los penales no pueden terminar en empate";
+    }
 }
+
 if ($penales1 > 13 || $penales1 < 0) {
     $errores .= 'Los penales del primer equipo debe ser menor o igual a 13 y positivos.<br>';
 } 
