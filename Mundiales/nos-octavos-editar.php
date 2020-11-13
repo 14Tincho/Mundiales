@@ -66,7 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include 'nos-octavos-editar-DB.php';
     include 'nos-fixture-cuartos.php';
 }
-
 include 'nos-octavos-editar-form.php';
 include 'footer.php';
 
