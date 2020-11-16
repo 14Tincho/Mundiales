@@ -40,8 +40,8 @@
                 <div class="dropdown-menu" aria-labelledby="menu_partidos">
                     <a class="dropdown-item" href="nos-octavos-listado.php">Octavos</a>
                     <a class="dropdown-item" href="nos-cuartos-listado.php">Cuartos</a>
-                    <a class="dropdown-item" href="nos-semifinal-listado.php">Semifinal</a>
-                    <a class="dropdown-item" href="nos-final-listado.php">Final</a>
+                    <a class="dropdown-item" href="nos-semis-listado.php">Semifinal</a>
+                    <a class="dropdown-item" href="nos-finales-listado.php">Final</a>
                 </div>
             </li>        
             <li class="nav-item">

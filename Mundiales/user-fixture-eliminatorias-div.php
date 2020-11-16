@@ -32,12 +32,19 @@
             $penales = $octavos['penales'];
             $nombre = $octavos['nombre'];
             $grupo = $octavos['grupo'];
-        if (empty($goles)) {
+        
+        // ponemos el numero 0 o la - a los goles o a lo penales dependiendo de si el resultado es nulo o cero
+        if (!empty($octavos['goles']) || $octavos['goles'] == "0") {
+            $goles = $octavos['goles'];
+        }else {
             $goles = '-';
         }
-        if (empty($penales)) {
+        if (!empty($octavos['penales']) || $octavos['penales'] == "0") {
+            $penales = $octavos['penales'];
+        }else {
             $penales = '-';
         }
+
         if ($nroPartido <= 52) {?>
             <?php $j++;
             if($j %2 == 0) { ?>
@@ -119,11 +126,17 @@
             $nroPartido = $cuartos['nropartido'];
             $goles = $cuartos['goles'];
             $penales = $cuartos['penales'];
-            $nombre = $cuartos['nombre'];        
-        if (empty($goles)) {
+            $nombre = $cuartos['nombre'];    
+
+        // ponemos el numero 0 o la - a los goles o a lo penales dependiendo de si el resultado es nulo o cero
+        if (!empty($cuartos['goles']) || $cuartos['goles'] == "0") {
+            $goles = $cuartos['goles'];
+        }else {
             $goles = '-';
         }
-        if (empty($penales)) {
+        if (!empty($cuartos['penales']) || $cuartos['penales'] == "0") {
+            $penales = $cuartos['penales'];
+        }else {
             $penales = '-';
         }
         
