@@ -166,4 +166,159 @@
             
                     
         <?php endwhile;?>
+
+    <!-- *****************************SEMIS***************************** -->
+    <h2 class="text-white col-12 titulo-octavos">Semifinales</h2>
+    <?php 
+        $anio = ANO;
+        include 'conexion.php';
+        $sql = "SELECT 
+        s.nropartido,
+        s.posicion,
+        s.goles,
+        s.penales,
+        s.anio,
+        e.nombre
+        FROM semis s 
+        LEFT JOIN equipos e ON e.id_equipo = s.id_equipo 
+        WHERE s.anio = $anio
+        ORDER BY s.nropartido , s.posicion";
+        
+        $rs = mysqli_query($link, $sql);
+        if (!$rs) {
+            header('Location: pagina-error.php?error=2 & detalle=Error en la consulta');                    
+            die;
+        }
+        mysqli_close($link);
+            
+            $h = 56;
+            $j = 1;
+
+        ?><div class="col-lg-3"></div><?php
+
+        while ($semis = mysqli_fetch_assoc($rs)):
+            $nroPartido = $semis['nropartido'];
+            $goles = $semis['goles'];
+            $penales = $semis['penales'];
+            $nombre = $semis['nombre'];    
+
+        // ponemos el numero 0 o la - a los goles o a lo penales dependiendo de si el resultado es nulo o cero
+        if (!empty($semis['goles']) || $semis['goles'] == "0") {
+            $goles = $semis['goles'];
+        }else {
+            $goles = '-';
+        }
+        if (!empty($semis['penales']) || $semis['penales'] == "0") {
+            $penales = $semis['penales'];
+        }else {
+            $penales = '-';
+        }
+        
+            $j++;
+            if($j %2 == 0) { 
+            $h++; ?>
+            <div class="form-group col-lg-3">
+            <h6 class="text-white">Partido <?= $nroPartido ?></h6>
+            <div class="form-row resultado-wrap ">
+                <div class="col-2 octavos"><span class="fixtureGoles">G<?=$h?></span></div>
+                <div class="col-6 div-bg"><?=$nombre?></div> 
+                <div class="col-2 octavos"><span class="fixtureGoles"><?=$goles?></span></div>
+                <div class="col-2 octavos"><span class="fixtureGoles">(<?=$penales?>)</span></div>
+            </div>
+
+            <?php
+            }else {
+            $h++; ?>
+            <div class="form-row resultado-wrap ">
+                <div class="col-2 octavos"><span class="fixtureGoles">G<?=$h?></span></div>
+                <div class="col-6 div-bg"><?=$nombre?></div> 
+                <div class="col-2 octavos"><span class="fixtureGoles"><?=$goles?></span></div>
+                <div class="col-2 octavos"><span class="fixtureGoles">(<?=$penales?>)</span></div>
+            </div>
+            </div>
+            <?php }?>
+            
+                    
+        <?php endwhile;?>
+
+    <!-- *****************************FINALES***************************** -->
+    <?php 
+        $anio = ANO;
+        include 'conexion.php';
+        $sql = "SELECT 
+        f.nropartido,
+        f.posicion,
+        f.goles,
+        f.penales,
+        f.anio,
+        e.nombre
+        FROM finales f 
+        LEFT JOIN equipos e ON e.id_equipo = f.id_equipo 
+        WHERE f.anio = $anio
+        ORDER BY f.nropartido , f.posicion";
+        
+        $rs = mysqli_query($link, $sql);
+        if (!$rs) {
+            header('Location: pagina-error.php?error=2 & detalle=Error en la consulta');                    
+            die;
+        }
+        mysqli_close($link);
+            
+            $h = 60;
+            $j = 1;
+        
+        while ($finales = mysqli_fetch_assoc($rs)):
+            $nroPartido = $finales['nropartido'];
+            $goles = $finales['goles'];
+            $penales = $finales['penales'];
+            $nombre = $finales['nombre'];    
+
+        // ponemos el numero 0 o la - a los goles o a lo penales dependiendo de si el resultado es nulo o cero
+        if (!empty($finales['goles']) || $finales['goles'] == "0") {
+            $goles = $finales['goles'];
+        }else {
+            $goles = '-';
+        }
+        if (!empty($finales['penales']) || $finales['penales'] == "0") {
+            $penales = $finales['penales'];
+        }else {
+            $penales = '-';
+        }
+            if($nroPartido == 63){
+                $t = 'Tercer Puesto';
+                $k =  'P';
+            }else{
+                $t = 'Final';
+                $k = 'G';
+            }
+            $j++;
+            if($j %2 == 0) { 
+            $h++; ?>
+            <h2 class="text-white col-12 titulo-octavos"><?= $t ?></h2>
+            <div class="col"></div>
+            <div class="form-group col-lg-3">
+            <div class="form-row resultado-wrap ">
+                <div class="col-2 octavos"><span class="fixtureGoles"><?=$k.$h?></span></div>
+                <div class="col-6 div-bg"><?=$nombre?></div> 
+                <div class="col-2 octavos"><span class="fixtureGoles"><?=$goles?></span></div>
+                <div class="col-2 octavos"><span class="fixtureGoles">(<?=$penales?>)</span></div>
+            </div>
+
+            <?php
+            }else {
+            $h++; ?>
+            <div class="form-row resultado-wrap ">
+                <div class="col-2 octavos"><span class="fixtureGoles"><?=$k.$h?></span></div>
+                <div class="col-6 div-bg"><?=$nombre?></div> 
+                <div class="col-2 octavos"><span class="fixtureGoles"><?=$goles?></span></div>
+                <div class="col-2 octavos"><span class="fixtureGoles">(<?=$penales?>)</span></div>
+            </div>
+            </div>
+            <div class="col"></div>
+            <?php 
+            $h = 60; }?>
+            
+                    
+        <?php endwhile;?>
+
 </div>
