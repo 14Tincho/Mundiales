@@ -23,10 +23,10 @@
                    aria-expanded="false">Prode</a>
                 <div class="dropdown-menu" aria-labelledby="menu_prode">
                     <a class="dropdown-item" href="user-prode-fase.php">Fase de Grupos</a>
-                    <a class="dropdown-item" href="user-prode-8.php">Octavos</a>
-                    <a class="dropdown-item" href="user-prode-4.php">Cuartos</a>
-                    <a class="dropdown-item" href="user-prode-2.php">Semifinal</a>
-                    <a class="dropdown-item" href="user-prode-1.php">Final</a>
+                    <a class="dropdown-item" href="user-prode-octavos.php">Octavos</a>
+                    <a class="dropdown-item" href="user-prode-cuartos.php">Cuartos</a>
+                    <a class="dropdown-item" href="user-prode-semis.php">Semifinal</a>
+                    <a class="dropdown-item" href="user-prode-finales.php">Final</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
