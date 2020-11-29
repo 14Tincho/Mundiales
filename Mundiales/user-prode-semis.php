@@ -10,14 +10,14 @@
 
                 foreach($lvCambio as $lvIndice => $resultado) {
                 
-                //busco si ya existe en la tabla prode cuartos
-                $sql = "SELECT * FROM prodecuartos WHERE id_user = $id_user AND nropartido = $lvIndice";
+                //busco si ya existe en la tabla prode semis
+                $sql = "SELECT * FROM prodesemis WHERE id_user = $id_user AND nropartido = $lvIndice";
                 $rs = mysqli_query($link, $sql);
 
 
                 if (mysqli_num_rows($rs) == 0 ) {
                 //Agrego el registro a la tabla prode en el sql
-                $sql = "INSERT INTO prodecuartos(id_user, nropartido, lv) 
+                $sql = "INSERT INTO prodesemis(id_user, nropartido, lv) 
                         VALUES ('$id_user','$lvIndice','$resultado')";                    
                 $rs = mysqli_query($link, $sql);
 
@@ -29,7 +29,7 @@
                         $fh = fopen(ARCHIVO_LOG_ERRORES, 'a');
                         fwrite($fh, "$fecha:\tError $error_numero\t$error_detalle\r\n");
                         fclose($fh);
-                        $mensaje_usuario = 'Se produjo un error al intentar insertar en la tabla prode.'
+                        $mensaje_usuario = 'Se produjo un error al intentar insertar en la tabla prode semis.'
                             . "(Error: $error_numero)";
                         die($mensaje_usuario);
                     }
@@ -48,7 +48,7 @@ else {
 
 
                 }else {
-                    $sql = "UPDATE prodecuartos SET lv = '$resultado' 
+                    $sql = "UPDATE prodesemis SET lv = '$resultado' 
                     WHERE id_user = $id_user AND nropartido = $lvIndice";
                     $rs = mysqli_query($link, $sql);
                     if (!$rs) {
@@ -59,7 +59,7 @@ else {
                             $fh = fopen(ARCHIVO_LOG_ERRORES, 'a');
                             fwrite($fh, "$fecha:\tError $error_numero\t$error_detalle\r\n");
                             fclose($fh);
-                            $mensaje_usuario = 'Se produjo un error al intentar actualizar la tabla prode.'
+                            $mensaje_usuario = 'Se produjo un error al intentar actualizar la tabla prode semis.'
                                 . "(Error: $error_numero)";
                             die($mensaje_usuario);                          
                             }
@@ -86,29 +86,29 @@ else {
                 }
                 
             }
-                // Cuando entra por primera vez al prode cuartos
-                $prodeCuartosUser = "prodecuartos" . $id_user;
+                // Cuando entra por primera vez al prode semis
+                $prodeSemisUser = "prodesemis" . $id_user;
         
-                $result = mysqli_query($link, "SHOW TABLES LIKE '$prodeCuartosUser'");
+                $result = mysqli_query($link, "SHOW TABLES LIKE '$prodeSemisUser'");
                 if(mysqli_fetch_row($result) == true) {
-                    $sql = "DROP VIEW $prodeCuartosUser";
+                    $sql = "DROP VIEW $prodeSemisUser";
                     $rs = mysqli_query($link, $sql);
                 } 
-                    $sql = "CREATE VIEW $prodeCuartosUser AS SELECT * FROM prodecuartos WHERE id_user = $id_user";
+                    $sql = "CREATE VIEW $prodeSemisUser AS SELECT * FROM prodesemis WHERE id_user = $id_user";
                     $rs = mysqli_query($link, $sql);
                 
                 
                 $sql = "SELECT 
-                c.nropartido,
-                c.nropartidooctavo,
-                c.posicion,
+                s.nropartido,
+                s.nropartidocuarto,
+                s.posicion,
                 e.nombre,
-                pc.lv 
-                FROM cuartos c 
-                LEFT JOIN equipos e ON e.id_equipo = c.id_equipo 
-                LEFT JOIN $prodeCuartosUser pc ON pc.nropartido = c.nropartido
-                WHERE c.anio = $anio
-                ORDER BY c.nropartido , c.posicion";
+                ps.lv 
+                FROM semis s
+                LEFT JOIN equipos e ON e.id_equipo = s.id_equipo 
+                LEFT JOIN $prodeSemisUser ps ON ps.nropartido = s.nropartido
+                WHERE s.anio = $anio
+                ORDER BY s.nropartido , s.posicion";
                 
                 $rs = mysqli_query($link, $sql);
                 if (!$rs) {
@@ -122,7 +122,7 @@ else {
                 }
              
 
-$titulo = 'Cuartos';
+$titulo = 'Semifinales';
 include 'user-header.php';
 
 
@@ -135,7 +135,7 @@ if (isset($mensaje)) {
         </button>
     </div>
     <?php
-    header('window.location: user-prode-cuartos.php');
+    header('window.location: user-prode-semis.php');
 }
 
 ?>
@@ -144,6 +144,6 @@ if (isset($mensaje)) {
 
 
 
-include 'user-prode-cuartos-div.php';
+include 'user-prode-semis-div.php';
 include 'footer.php';
 

@@ -49,7 +49,8 @@ while ($cuartos = mysqli_fetch_assoc($rs)) {
         $idEquipo2 = $cuartos['id_equipo'];
         $goles2 = $cuartos['goles'];
         $penales2 = $cuartos['penales'];
-    }   
+    } 
+    $nropartidocuarto = $cuartos['nropartido'];   
 }
 
 
@@ -67,12 +68,14 @@ if ($goles1 > $goles2) {
         nropartido,
         posicion,
         id_equipo, 
-        anio 
+        anio,
+        nropartidocuarto 
         ) VALUES (
         $j,
         $i,
         $idEquipo1,
-        $anio        
+        $anio,
+        $nropartidocuarto         
         )";
         $res = mysqli_query($link, $sql);
 }elseif ($goles1 < $goles2) {
@@ -80,12 +83,14 @@ if ($goles1 > $goles2) {
         nropartido,
         posicion,
         id_equipo, 
-        anio 
+        anio,
+        nropartidocuarto  
         ) VALUES (
         $j,
         $i,
         $idEquipo2,
-        $anio        
+        $anio,
+        $nropartidocuarto         
         )";
     $res = mysqli_query($link, $sql);
 }else{
@@ -94,12 +99,14 @@ if ($goles1 > $goles2) {
                 nropartido,
                 posicion,
                 id_equipo, 
-                anio 
+                anio,
+                nropartidocuarto  
                 ) VALUES (
                 $j,
                 $i,
                 $idEquipo1,
-                $anio        
+                $anio,
+                $nropartidocuarto         
                 )";
                 $res = mysqli_query($link, $sql);
         }else {
@@ -107,12 +114,14 @@ if ($goles1 > $goles2) {
                 nropartido,
                 posicion,
                 id_equipo, 
-                anio 
+                anio,
+                nropartidocuarto  
                 ) VALUES (
                 $j,
                 $i,
                 $idEquipo2,
-                $anio        
+                $anio,
+                $nropartidocuarto         
                 )";
             $res = mysqli_query($link, $sql);
         }

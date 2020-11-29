@@ -14,7 +14,7 @@
                 <div class="form-group col-lg-3">
                     <h6 class="text-white">Partido <?= $nroPartido ?></h6>
                     <div class="form-row resultado-wrap ">
-                        <div class="col-2 octavos"><span class="fixtureGoles"><?=$nropartidooctavo?></span></div>
+                        <div class="col-2 octavos"><span class="fixtureGoles">G<?=$nropartidooctavo?></span></div>
                         <div class="col-8 div-bg"><?=$nombre?></div> 
                         <div class="col-2 div-bg"><input type="radio" value="L" name="<?=$nroPartido?>" id="" <?php if($lv === 'L' ) { echo 'checked'; } ?>></div>
                     </div>
@@ -22,7 +22,7 @@
                 <?php
                 } else {?>
                     <div class="form-row resultado-wrap ">
-                        <div class="col-2 octavos"><span class="fixtureGoles"><?=$nropartidooctavo?></span></div>
+                        <div class="col-2 octavos"><span class="fixtureGoles">G<?=$nropartidooctavo?></span></div>
                         <div class="col-8 div-bg"><?=$nombre?></div>
                         <div class="col-2 div-bg"><input type="radio" value="V" name="<?=$nroPartido?>" id="" <?php if($lv === 'V' ) { echo 'checked'; } ?>></div>
                     </div> 
