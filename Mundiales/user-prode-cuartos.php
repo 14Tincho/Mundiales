@@ -10,14 +10,14 @@
 
                 foreach($lvCambio as $lvIndice => $resultado) {
                 
-                //busco si ya existe en la tabla prode octavos
-                $sql = "SELECT * FROM prodeoctavos WHERE id_user = $id_user AND nropartido = $lvIndice";
+                //busco si ya existe en la tabla prode cuartos
+                $sql = "SELECT * FROM prodecuartos WHERE id_user = $id_user AND nropartido = $lvIndice";
                 $rs = mysqli_query($link, $sql);
 
 
                 if (mysqli_num_rows($rs) == 0 ) {
                 //Agrego el registro a la tabla prode en el sql
-                $sql = "INSERT INTO prodeoctavos(id_user, nropartido, lv) 
+                $sql = "INSERT INTO prodecuartos(id_user, nropartido, lv) 
                         VALUES ('$id_user','$lvIndice','$resultado')";                    
                 $rs = mysqli_query($link, $sql);
 
@@ -48,7 +48,7 @@ else {
 
 
                 }else {
-                    $sql = "UPDATE prodeoctavos SET lv = '$resultado' 
+                    $sql = "UPDATE prodecuartos SET lv = '$resultado' 
                     WHERE id_user = $id_user AND nropartido = $lvIndice";
                     $rs = mysqli_query($link, $sql);
                     if (!$rs) {
@@ -86,29 +86,29 @@ else {
                 }
                 
             }
-                // Cuando entra por primera vez al prode octavos
-                $prodeOctavosUser = "prodeoctavos" . $id_user;
+                // Cuando entra por primera vez al prode cuartos
+                $prodeCuartosUser = "prodecuartos" . $id_user;
         
-                $result = mysqli_query($link, "SHOW TABLES LIKE '$prodeOctavosUser'");
+                $result = mysqli_query($link, "SHOW TABLES LIKE '$prodeCuartosUser'");
                 if(mysqli_fetch_row($result) == true) {
-                    $sql = "DROP VIEW $prodeOctavosUser";
+                    $sql = "DROP VIEW $prodeCuartosUser";
                     $rs = mysqli_query($link, $sql);
                 } 
-                    $sql = "CREATE VIEW $prodeOctavosUser AS SELECT * FROM prodeoctavos WHERE id_user = $id_user";
+                    $sql = "CREATE VIEW $prodeCuartosUser AS SELECT * FROM prodecuartos WHERE id_user = $id_user";
                     $rs = mysqli_query($link, $sql);
-                    
+                
                 
                 $sql = "SELECT 
-                o.nropartido,
-                o.posicion,
+                c.nropartido,
+                c.nropartidooctavo,
+                c.posicion,
                 e.nombre,
-                e.grupo,
-                po.lv 
-                FROM octavos o 
-                LEFT JOIN equipos e ON e.id_equipo = o.id_equipo 
-                LEFT JOIN $prodeOctavosUser po ON po.nropartido = o.nropartido
-                WHERE o.anio = $anio
-                ORDER BY o.nropartido , o.posicion";
+                pc.lv 
+                FROM cuartos c 
+                LEFT JOIN equipos e ON e.id_equipo = c.id_equipo 
+                LEFT JOIN $prodeCuartosUser pc ON pc.nropartido = c.nropartido
+                WHERE c.anio = $anio
+                ORDER BY c.nropartido , c.posicion";
                 
                 $rs = mysqli_query($link, $sql);
                 if (!$rs) {
@@ -122,7 +122,7 @@ else {
                 }
              
 
-$titulo = 'Octavos';
+$titulo = 'Cuartos';
 include 'user-header.php';
 
 
@@ -135,7 +135,7 @@ if (isset($mensaje)) {
         </button>
     </div>
     <?php
-    header('window.location: user-prode-octavos.php');
+    header('window.location: user-prode-cuartos.php');
 }
 
 ?>
@@ -144,6 +144,6 @@ if (isset($mensaje)) {
 
 
 
-include 'user-prode-octavos-div.php';
+include 'user-prode-cuartos-div.php';
 include 'footer.php';
 

@@ -5,7 +5,6 @@ $anio = ANO;
 
 $sql = "DELETE FROM cuartos WHERE anio = $anio";
 $rs = mysqli_query($link, $sql);
-var_dump($sql);
 
 
 // voy barriendo tabla octavos y $h es igual nroPartidos
@@ -49,7 +48,8 @@ while ($octavos = mysqli_fetch_assoc($rs)) {
         $idEquipo2 = $octavos['id_equipo'];
         $goles2 = $octavos['goles'];
         $penales2 = $octavos['penales'];
-    }   
+    } 
+    $nropartidooctavo = $octavos['nropartido'];  
 }
 
 
@@ -66,13 +66,15 @@ if ($goles1 > $goles2) {
         $sql = "INSERT INTO cuartos (
         nropartido,
         posicion,
-        id_equipo, 
-        anio 
+        id_equipo,
+        anio,
+        nropartidooctavo
         ) VALUES (
         $j,
         $i,
         $idEquipo1,
-        $anio        
+        $anio,
+        $nropartidooctavo       
         )";
         $res = mysqli_query($link, $sql);
 }elseif ($goles1 < $goles2) {
@@ -80,12 +82,14 @@ if ($goles1 > $goles2) {
         nropartido,
         posicion,
         id_equipo, 
-        anio 
+        anio,
+        nropartidooctavo
         ) VALUES (
         $j,
         $i,
         $idEquipo2,
-        $anio        
+        $anio,
+        $nropartidooctavo       
         )";
     $res = mysqli_query($link, $sql);
 }else{
@@ -94,12 +98,14 @@ if ($goles1 > $goles2) {
                 nropartido,
                 posicion,
                 id_equipo, 
-                anio 
+                anio,
+                nropartidooctavo
                 ) VALUES (
                 $j,
                 $i,
                 $idEquipo1,
-                $anio        
+                $anio,
+                $nropartidooctavo      
                 )";
                 $res = mysqli_query($link, $sql);
         }else {
@@ -107,12 +113,14 @@ if ($goles1 > $goles2) {
                 nropartido,
                 posicion,
                 id_equipo, 
-                anio 
+                anio,
+                nropartidooctavo
                 ) VALUES (
                 $j,
                 $i,
                 $idEquipo2,
-                $anio        
+                $anio,
+                $nropartidooctavo
                 )";
             $res = mysqli_query($link, $sql);
         }

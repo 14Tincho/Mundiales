@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="text-center">
     <form action="user-prode-fase.php" method="get">
         <div class="form-row">
             <?php                
