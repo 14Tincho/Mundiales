@@ -28,9 +28,9 @@ if(!empty($errores)) {
 
 
 // doy de alta el registro
-    $ano = ANO;
+    $anio = ANO;
     $sql = "INSERT INTO partidos (partido, id_equipo1, id_equipo2, anio) VALUES 
-    ('$nropartido', '$idEquipo1', '$idEquipo2', $ano)";
+    ('$nropartido', '$idEquipo1', '$idEquipo2', $anio)";
     $rs = mysqli_query($link, $sql);
 
     if (!$rs) {

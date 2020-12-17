@@ -43,6 +43,9 @@
                     <a class="dropdown-item" href="nos-semis-listado.php">Semifinal</a>
                     <a class="dropdown-item" href="nos-finales-listado.php">Final</a>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="nos-guardar-pos-tot.php">Guardar Posicion Total</a>                  
             </li>        
             <li class="nav-item">
                 <a class="nav-link" href="login-derivar.php" onclick="return confirm('¿Seguro que quiere cerrar sesión?');">Cerrar Sesión</a>

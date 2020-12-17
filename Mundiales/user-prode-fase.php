@@ -11,14 +11,14 @@
                 foreach($levCambio as $levIndice => $resultado) {
                 
                 //busco si ya existe en la tabla prode
-                $sql = "SELECT * FROM prode WHERE id_user = $id_user AND id_partido = $levIndice";
+                $sql = "SELECT * FROM prode WHERE id_user = $id_user AND id_partido = $levIndice AND anio = $anio";
                 $rs = mysqli_query($link, $sql);
 
 
                 if (mysqli_num_rows($rs) == 0 ) {
                 //Agrego el registro a la tabla prode en el sql
-                $sql = "INSERT INTO prode(id_user, id_partido, lev) 
-                        VALUES ('$id_user','$levIndice','$resultado')";                    
+                $sql = "INSERT INTO prode(id_user, id_partido, lev, anio) 
+                        VALUES ('$id_user','$levIndice','$resultado','$anio)";                    
                 $rs = mysqli_query($link, $sql);
 
                     if (!$rs) {

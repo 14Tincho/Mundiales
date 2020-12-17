@@ -11,14 +11,14 @@
                 foreach($lvCambio as $lvIndice => $resultado) {
                 
                 //busco si ya existe en la tabla prode finales
-                $sql = "SELECT * FROM prodefinales WHERE id_user = $id_user AND nropartido = $lvIndice";
+                $sql = "SELECT * FROM prodefinales WHERE id_user = $id_user AND nropartido = $lvIndice AND anio = '$anio'";
                 $rs = mysqli_query($link, $sql);
 
 
                 if (mysqli_num_rows($rs) == 0 ) {
                 //Agrego el registro a la tabla prode en el sql
-                $sql = "INSERT INTO prodefinales(id_user, nropartido, lv) 
-                        VALUES ('$id_user','$lvIndice','$resultado')";                    
+                $sql = "INSERT INTO prodefinales(id_user, nropartido, lv, anio) 
+                        VALUES ('$id_user','$lvIndice','$resultado','$anio')";                    
                 $rs = mysqli_query($link, $sql);
 
                     if (!$rs) {
@@ -94,7 +94,7 @@ else {
                     $sql = "DROP VIEW $prodefinalesUser";
                     $rs = mysqli_query($link, $sql);
                 } 
-                    $sql = "CREATE VIEW $prodefinalesUser AS SELECT * FROM prodefinales WHERE id_user = $id_user";
+                    $sql = "CREATE VIEW $prodefinalesUser AS SELECT * FROM prodefinales WHERE id_user = $id_user AND anio = $anio";
                     $rs = mysqli_query($link, $sql);
                 
                 
