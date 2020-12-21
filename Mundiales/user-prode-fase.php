@@ -18,7 +18,7 @@
                 if (mysqli_num_rows($rs) == 0 ) {
                 //Agrego el registro a la tabla prode en el sql
                 $sql = "INSERT INTO prode(id_user, id_partido, lev, anio) 
-                        VALUES ('$id_user','$levIndice','$resultado','$anio)";                    
+                        VALUES ('$id_user','$levIndice','$resultado',$anio)";                    
                 $rs = mysqli_query($link, $sql);
 
                     if (!$rs) {

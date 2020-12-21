@@ -19,10 +19,55 @@
     $puntajetercer = $array_puntaje['puntajetercer'];
     $puntajefinal = $array_puntaje['puntajefinal'];
 
-    
-    // CALCULO PUNTO DE LA FASE
+    // ----------------------------------------------------
+    // ----------------------------------------------------
+    // ------------CALCULO PUNTOS DE LA FASE---------------
+    // ----------------------------------------------------
+    // ----------------------------------------------------
     $sql = "SELECT * FROM prode WHERE anio = $anio;";
     $rs = mysqli_query($link,$sql);
+
+    
+    while ($array_prode = mysqli_fetch_assoc($rs)) {
+
+        $id_prode = $array_prode['id_prode'];
+        $id_partido = $array_prode['id_partido'];
+        $lev = $array_prode['lev'];
+
+        $sql = "SELECT goles1 , goles2 FROM partidos WHERE id_partido = $id_partido;";
+        $res = mysqli_query($link,$sql);
+
+
+        // CALCULO EL RESULTADO DEL PARTIDO
+        $array_partidos = mysqli_fetch_assoc($res);
+        $goles1 = $array_partidos['goles1'];
+        $goles2 = $array_partidos['goles2'];
+
+        if ($goles1 > $goles2) {
+            $levP = "L";
+        }elseif ($goles1 == $goles2) {
+            $levP = "E";            
+        }else {
+            $levP = "V";
+        }
+        // COMPARO EL RESULTADO REAL CON EL RESULTADO DEL USUARIO
+        if ($lev == $levP) {
+            $puntosUsuario = $puntajefases;
+        }else {
+            $puntosUsuario = 0;
+        }
+
+        // ACTUALIZO TABLA PRODE CON EL RESULTADO DEL USUARIO, SUERTE CHAVAL!!
+        $sql = "UPDATE prode SET puntos = $puntosUsuario WHERE id_prode = '$id_prode';";
+
+    }
+
+    // ----------------------------------------------------
+    // ----------------------------------------------------
+    // ------------CALCULO PUNTOS DE OCTAVOS---------------
+    // ----------------------------------------------------
+    // ----------------------------------------------------
+
 
 
 
