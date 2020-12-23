@@ -242,6 +242,13 @@
 
 
 
+
+
+    
+
+
+
+
     // ACTUALIZO O INSERTO EN TABLA DE POSICIONES
     $sql = "SELECT * FROM posiciontotales WHERE id_user = '$usuario' AND anio = $anio;";
     $rs = mysqli_query($link,$sql);

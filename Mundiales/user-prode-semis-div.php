@@ -1,7 +1,7 @@
 <div class="text-center">
     <form action="user-prode-semis.php" method="get">
         <div class="form-row">
-            <div class="form-group col-lg-3"></div>
+            <div class="form-group col-xl-3"></div>
             <?php             
             $j = 1;
             while ($semis = mysqli_fetch_assoc($rs)):
@@ -13,7 +13,7 @@
                 $j++;
 
                 if($j %2 == 0) { ?>
-                <div class="form-group col-lg-3">
+                <div class="form-group col-xl-3 col-md-6">
                     <h6 class="text-white">Partido <?= $nroPartido ?></h6>
                     <div class="form-row resultado-wrap ">
                         <div class="col-2 octavos"><span class="fixtureGoles">G<?=$nropartidocuarto?></span></div>

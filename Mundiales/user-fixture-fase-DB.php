@@ -31,7 +31,7 @@ mysqli_close($link);
 
 
         for ($j='A'; $j <= 'H' ; $j++) {  ?>
-        <div class="col-lg-6 table-responsive-sm">
+        <div class="col-xl-6 table-responsive-sm">
         <h5 class="text-white text-left col-12">Grupo <?=$j?></h5>
             <table class="table table-danger table-striped">
                 <thead>

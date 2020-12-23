@@ -48,7 +48,7 @@
         if ($nroPartido <= 52) {?>
             <?php $j++;
             if($j %2 == 0) { ?>
-            <div class="form-group col-lg-3">
+            <div class="form-group col-xl-3 col-md-6">
             <h6 class="text-white">Partido <?= $nroPartido ?></h6>
             <div class="form-row resultado-wrap ">
                 <div class="col-2 octavos"><span class="fixtureGoles"><?=$grupo . $posicion?></span></div>
@@ -70,7 +70,7 @@
         }else {
             $j++;
             if($j %2 == 0) { ?>
-            <div class="form-group col-lg-3">
+            <div class="form-group col-xl-3 col-md-6">
                 <h6 class="text-white">Partido <?= $nroPartido ?></h6>
                 <div class="form-row resultado-wrap ">
                     <div class="col-2 octavos"><span class="fixtureGoles"><?=$grupo . $posicion?></span></div>
@@ -143,7 +143,7 @@
             $j++;
             if($j %2 == 0) { 
             $h++; ?>
-            <div class="form-group col-lg-3">
+            <div class="form-group col-xl-3 col-md-6">
             <h6 class="text-white">Partido <?= $nroPartido ?></h6>
             <div class="form-row resultado-wrap ">
                 <div class="col-2 octavos"><span class="fixtureGoles">G<?=$h?></span></div>
@@ -194,7 +194,7 @@
             $h = 56;
             $j = 1;
 
-        ?><div class="col-lg-3"></div><?php
+        ?><div class="col-xl-3"></div><?php
 
         while ($semis = mysqli_fetch_assoc($rs)):
             $nroPartido = $semis['nropartido'];
@@ -217,7 +217,7 @@
             $j++;
             if($j %2 == 0) { 
             $h++; ?>
-            <div class="form-group col-lg-3">
+            <div class="form-group col-xl-3 col-md-6">
             <h6 class="text-white">Partido <?= $nroPartido ?></h6>
             <div class="form-row resultado-wrap ">
                 <div class="col-2 octavos"><span class="fixtureGoles">G<?=$h?></span></div>
@@ -296,7 +296,7 @@
             $h++; ?>
             <h2 class="text-white col-12 titulo-octavos"><?= $t ?></h2>
             <div class="col"></div>
-            <div class="form-group col-lg-3">
+            <div class="form-group col-xl-3 col-md-6">
             <div class="form-row resultado-wrap ">
                 <div class="col-2 octavos"><span class="fixtureGoles"><?=$k.$h?></span></div>
                 <div class="col-6 div-bg"><?=$nombre?></div> 

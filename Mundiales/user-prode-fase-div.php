@@ -5,7 +5,7 @@
                 $h = 0;
                 for ($j='A'; $j <= 'H' ; $j++) { 
             ?>
-                <div class="form-group col-lg-3 resultado-row d-flex justify-content-center">
+                <div class="form-group col-xl-3 col-md-6 resultado-row d-flex justify-content-center">
                     <div class="form-row resultado-wrap">
                     <h5 class="text-white col-12">Grupo <?=$j?></h5>
                     <div class="text-white col-4"></div>
@@ -39,11 +39,9 @@
                                     ?>
                                     <div class="div-bg col-4"><?=$equipo1?></div>
                                     <div class="col-4 form-row d-flex justify-content-center resultado-wrap"> 
-                                        <div class="form-row radio">
                                             <div class="col-4"><input type="radio" value="L" name="<?=$id_partido;?>" id="" <?php if($lev === 'L' ) { echo 'checked'; } ?>></div>
                                             <div class="col-4"><input type="radio" value="E" name="<?=$id_partido;?>" id="" <?php if($lev === 'E' ) { echo 'checked'; } ?>></div>
                                             <div class="col-4"><input type="radio" value="V" name="<?=$id_partido;?>" id="" <?php if($lev === 'V' ) { echo 'checked'; } ?>></div>
-                                        </div>
                                     </div>
                                     <div class="div-bg col-4"><?=$equipo2?></div>
                                 </div>

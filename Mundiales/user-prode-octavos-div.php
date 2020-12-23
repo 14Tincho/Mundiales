@@ -13,7 +13,7 @@
             if ($nroPartido <= 52) {?>
                 <?php $j++;
                 if($j %2 == 0) { ?>
-                <div class="form-group col-lg-3">
+                <div class="form-group  col-xl-3 col-md-6">
                 <h6 class="text-white">Partido <?= $nroPartido ?></h6>
                 <div class="form-row resultado-wrap ">
                     <div class="col-2 octavos"><span class="fixtureGoles"><?=$grupo . $posicion?></span></div>
@@ -33,7 +33,7 @@
             }else {
                 $j++;
                 if($j %2 == 0) { ?>
-                <div class="form-group col-lg-3">
+                <div class="form-group  col-xl-3 col-md-6">
                     <h6 class="text-white">Partido <?= $nroPartido ?></h6>
                     <div class="form-row resultado-wrap ">
                         <div class="col-2 octavos"><span class="fixtureGoles"><?=$grupo . $posicion?></span></div>
