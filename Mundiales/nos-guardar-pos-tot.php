@@ -236,6 +236,70 @@
     }
 
 
+    // ----------------------------------------------------
+    // ----------------------------------------------------
+    // ------------CALCULO PUNTOS DE FINALES---------------
+    // ----------------------------------------------------
+    // ----------------------------------------------------
+
+    $sql = "SELECT * FROM prodefinales WHERE anio = $anio;";
+    $rs = mysqli_query($link,$sql);
+
+    $fi = 0;
+    while ($array_prodefinales = mysqli_fetch_assoc($rs)) {
+        $fi++;
+        $id_prodefinales = $array_prodefinales['id_prodefinales'];
+        $nropartido = $array_prodefinales['nropartido'];
+        $lv = $array_prodefinales['lv'];
+
+        $sql = "SELECT goles, penales, posicion FROM finales WHERE nropartido = $nropartido;";
+        $res = mysqli_query($link,$sql);
+
+        while ($array_finales = mysqli_fetch_assoc($res)) {
+            $posicion = $array_finales['posicion'];
+            if ($posicion == 1) {
+                $goles1 = $array_finales['goles'];
+                $penales1 = $array_finales['penales'];
+            }else {
+                $goles2 = $array_finales['goles'];
+                $penales2 = $array_finales['penales'];
+            }
+        }       
+
+        // CALCULO EL RESULTADO DEL PARTIDO
+
+        if ($goles1 > $goles2) {
+            $lvFi = "L";
+        }elseif ($goles1 == $goles2) {
+            if ($penales1 > $penales2) {
+                $lvFi = "L";
+            }else {
+                $lvFi = "V";
+            }        
+        }else {
+            $lvFi = "V";
+        }
+
+        // COMPARO EL RESULTADO REAL CON EL RESULTADO DEL USUARIO
+
+        if ($lv == $lvFi) {
+            if ($i == 1) {
+                $puntosUsuario = $puntajetercer;
+            }else {
+                $puntosUsuario = $puntajefinal;
+            }
+        }else {
+            $puntosUsuario = 0;
+        }
+
+        
+
+        // ACTUALIZO TABLA PRODEFINALES CON EL RESULTADO DEL USUARIO, SUERTE CHAVAL!!
+        $sql = "UPDATE prodefinales SET puntos = $puntosUsuario WHERE id_prodefinales = '$id_prodefinales';";
+
+    }
+
+    
 
     
 
@@ -244,7 +308,7 @@
 
 
 
-    
+
 
 
 
