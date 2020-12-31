@@ -1,0 +1,11 @@
+.btn-check:active+.btn-outline-primary, .btn-check:checked+.btn-outline-primary, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show, .btn-outline-primary:active {
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000;
+}
+.equisD{
+    color: rgba(255, 255, 255, 0);
+}
+.equis{
+    color: #fff;
+}
