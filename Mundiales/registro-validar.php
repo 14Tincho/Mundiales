@@ -14,7 +14,7 @@ $rs = mysqli_query($link,$sql);
 mysqli_close($link);
 
 if (mysqli_num_rows($rs) >= 1){
-    $errores .= "El usuario '$usuario' ya existe.<br>"; 
+    $errores .= "El nombre de usuario '$usuario' ya existe.<br>"; 
 }
 
 // ---------------PASSWORD--------------
