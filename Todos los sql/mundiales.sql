@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-01-2021 a las 16:14:53
+-- Tiempo de generación: 06-01-2021 a las 14:40:55
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -336,32 +336,30 @@ CREATE TABLE `prode` (
 
 INSERT INTO `prode` (`id_prode`, `id_user`, `id_partido`, `lev`, `puntos`, `anio`) VALUES
 (1, 11, 2, 'E', 0, 2018),
-(3, 13, 2, 'L', 3, 2018),
+(3, 13, 2, 'L', 0, 2018),
 (4, 11, 28, 'E', 0, 2018),
-(6, 11, 43, 'L', 0, 2018),
-(7, 11, 3, 'V', 3, 2018),
+(6, 11, 43, 'L', 2, 2018),
 (8, 11, 4, 'E', 0, 2018),
-(9, 11, 29, 'E', 0, 2018),
+(9, 11, 29, 'E', 2, 2018),
 (10, 13, 43, 'E', 0, 2018),
-(11, 13, 3, 'E', 0, 2018),
 (12, 13, 4, 'E', 0, 2018),
 (13, 13, 5, 'V', 0, 2018),
 (14, 13, 6, 'V', 0, 2018),
 (15, 11, 34, 'V', 0, 2018),
 (16, 11, 40, 'L', 0, 2018),
-(17, 11, 41, 'E', 0, 2018),
-(18, 11, 5, 'L', 0, 2018),
+(17, 11, 41, 'E', 2, 2018),
+(18, 11, 5, 'L', 2, 2018),
 (19, 11, 42, 'V', 0, 2018),
 (20, 11, 49, 'E', 0, 2018),
-(21, 11, 48, 'V', 3, 2018),
+(21, 11, 48, 'V', 0, 2018),
 (22, 11, 46, 'E', 0, 2018),
 (23, 11, 47, 'V', 0, 2018),
 (24, 11, 44, 'V', 0, 2018),
-(25, 11, 45, 'V', 0, 2018),
+(25, 11, 45, 'V', 2, 2018),
 (26, 11, 50, 'L', 0, 2018),
-(27, 11, 51, 'L', 0, 2018),
-(28, 11, 52, 'V', 0, 2018),
-(29, 11, 53, 'L', 0, 2018),
+(27, 11, 51, 'L', 2, 2018),
+(28, 11, 52, 'V', 2, 2018),
+(29, 11, 53, 'L', 2, 2018),
 (30, 11, 54, 'E', 0, 2018),
 (31, 11, 55, 'L', 0, 2018),
 (32, 11, 6, 'E', 0, 2018),
@@ -370,11 +368,12 @@ INSERT INTO `prode` (`id_prode`, `id_user`, `id_partido`, `lev`, `puntos`, `anio
 (35, 11, 58, 'V', 0, 2018),
 (36, 11, 59, 'E', 0, 2018),
 (37, 11, 62, 'E', 0, 2018),
-(38, 11, 63, 'L', 0, 2018),
+(38, 11, 63, 'L', 2, 2018),
 (42, 24, 0, '', 0, 2018),
 (43, 11, 0, '', 0, 2018),
 (44, 13, 0, '', 0, 2018),
-(45, 15, 0, '', 0, 2018);
+(45, 15, 0, '', 0, 2018),
+(46, 25, 0, '', 0, 2018);
 
 -- --------------------------------------------------------
 
@@ -400,7 +399,10 @@ INSERT INTO `prodecuartos` (`id_prodecuartos`, `id_user`, `nropartido`, `lv`, `p
 (2, 11, 58, 'V', 0, 2018),
 (3, 11, 59, 'L', 0, 2018),
 (4, 11, 60, 'L', 0, 2018),
-(13, 15, 57, 'V', 0, 2018);
+(13, 15, 57, 'V', 0, 2018),
+(14, 25, 0, '', 0, 2018),
+(15, 24, 0, '', 0, 2018),
+(16, 13, 0, '', 0, 2018);
 
 -- --------------------------------------------------------
 
@@ -423,7 +425,11 @@ CREATE TABLE `prodefinales` (
 
 INSERT INTO `prodefinales` (`id_prodecuartos`, `id_user`, `nropartido`, `lv`, `puntos`, `anio`) VALUES
 (1, 11, 63, 'L', 0, 2018),
-(2, 11, 64, 'L', 0, 2018);
+(2, 11, 64, 'L', 15, 2018),
+(3, 25, 0, '', 0, 2018),
+(4, 13, 0, '', 0, 2018),
+(5, 15, 0, '', 0, 2018),
+(6, 24, 0, '', 0, 2018);
 
 -- --------------------------------------------------------
 
@@ -456,7 +462,9 @@ INSERT INTO `prodeoctavos` (`id_prodeoctavos`, `id_user`, `nropartido`, `lv`, `p
 (9, 13, 49, 'V', 5, 2018),
 (10, 13, 50, 'L', 6, 2018),
 (11, 13, 54, 'V', 0, 2018),
-(12, 15, 54, 'L', 12, 2018);
+(12, 15, 54, 'L', 12, 2018),
+(13, 25, 0, '', 0, 2018),
+(14, 24, 0, '', 0, 2018);
 
 -- --------------------------------------------------------
 
@@ -494,7 +502,11 @@ CREATE TABLE `prodesemis` (
 
 INSERT INTO `prodesemis` (`id_prodecuartos`, `id_user`, `nropartido`, `lv`, `puntos`, `anio`) VALUES
 (1, 11, 61, 'L', 0, 2018),
-(2, 11, 62, 'L', 0, 2018);
+(2, 11, 62, 'L', 0, 2018),
+(5, 25, 0, '', 0, 2018),
+(6, 13, 0, '', 0, 2018),
+(7, 15, 0, '', 0, 2018),
+(8, 24, 0, '', 0, 2018);
 
 -- --------------------------------------------------------
 
@@ -571,7 +583,8 @@ INSERT INTO `user` (`id_user`, `username`, `contrasena`, `email`, `nivel`) VALUE
 (13, 'Tincho', '$2y$10$xKKjNqlALdVFvT0WDuAQbOZ1tr0Hs/VIdwxR2YDYoAvJI/5.J1K1C', '951951952@tincho', NULL),
 (14, 'Jorge', '$2y$10$NYBGFyOSqrBOc0UlYs5OXekLkArsSxWFeyG9WtqJKdHMce4U6CFqS', 'george01@jorge', NULL),
 (15, 'Silveta', '$2y$10$36Ub9fCAmy5N0P9L2q6Y7eHK7hqi3dVyRFP24WUDOuZiOtGeC.YTm', 'pepe@pepe', NULL),
-(24, 'chayanne', '$2y$10$BOyFBs4FhlgoB/teCNEy1uIDVIjexsOgS2uYmSXoyq/OP0aonOD8W', 'salome@salome.com', NULL);
+(24, 'chayanne', '$2y$10$BOyFBs4FhlgoB/teCNEy1uIDVIjexsOgS2uYmSXoyq/OP0aonOD8W', 'salome@salome.com', NULL),
+(25, 'Neymar', '$2y$10$poBbXG8j6P8KdrjDeRgrMuCFhZgAMFY7MPWPNF7p6QHgTegdKZF7G', 'neymar@neimi.com', NULL);
 
 -- --------------------------------------------------------
 
@@ -721,37 +734,37 @@ ALTER TABLE `partidos`
 -- AUTO_INCREMENT de la tabla `posiciontotales`
 --
 ALTER TABLE `posiciontotales`
-  MODIFY `id_posiciontotal` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_posiciontotal` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `prode`
 --
 ALTER TABLE `prode`
-  MODIFY `id_prode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_prode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `prodecuartos`
 --
 ALTER TABLE `prodecuartos`
-  MODIFY `id_prodecuartos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_prodecuartos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `prodefinales`
 --
 ALTER TABLE `prodefinales`
-  MODIFY `id_prodecuartos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_prodecuartos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `prodeoctavos`
 --
 ALTER TABLE `prodeoctavos`
-  MODIFY `id_prodeoctavos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_prodeoctavos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `prodesemis`
 --
 ALTER TABLE `prodesemis`
-  MODIFY `id_prodecuartos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_prodecuartos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `puntaje`
@@ -769,7 +782,7 @@ ALTER TABLE `semis`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
