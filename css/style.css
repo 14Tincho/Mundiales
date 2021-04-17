@@ -1,0 +1,168 @@
+:root{
+    --img-fondo: url(../imagenes/background.jpg);
+    --img-navbar: url(../imagenes/navbar.jpg);
+}
+
+*{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.mt3r{
+    margin-top: 3rem;
+}
+.sinP{
+    padding: 0;
+}
+.sinM{
+    margin: 0;
+}
+.marginBottom40{
+    margin: 40px;
+}
+.marginBottom30{
+    margin: 30px;
+}
+
+/* ----------------------HEADER--------------------- */
+body {
+    padding-top: 3rem;
+    height: 100vh;
+    background-image: var(--img-fondo);
+    background-attachment: fixed;
+    background-size: cover; 
+}
+.contenedor-principal {
+    padding: 2rem 1.5rem;
+    /*text-align: center;*/
+}
+.navbar{
+    background-image: var(--img-navbar);
+}
+h1, h2{
+    color: #ffffff;
+}
+
+/* ----------------------Login form--------------------- */
+.index-copa{
+    margin-top: 40px;
+    height: 260px;
+}
+.h1-sesion{
+    font-size: 30px;
+}
+.registro{
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.registro:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+.olvide{
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.olvide:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+.btn-fixture{
+    color: white;
+}
+.btn-fixture:hover{
+    text-decoration: underline;
+    color: white;
+}
+/* ----------------------------------------------------------------------------- */
+/* -------------------------------------NOS------------------------------------- */
+/* ----------------------------------------------------------------------------- */
+
+/* -------------------Alta form(nos-equipos y nos-partidos)--------------------- */
+.label-alta{
+    color: #ffffff;
+}
+.btn-alta{
+    margin-top: 25px;
+    color: #ffffff;
+    background-image:var(--img-navbar); 
+}
+.btn-alta:hover{
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* ----------------------Tabla Listado--------------------- */
+.table-listado{
+    color: #ffffff;
+}
+.a-listado{
+    color: #ffffff;
+}
+.a-listado:hover{
+    color: #ffffff;
+}
+.table-tfoot{
+    color: #ffffff;
+    background-image:var(--img-navbar); 
+}
+
+
+/* ----------------------Editar Form(equipos)--------------------- */
+.label-editar{
+    color: #ffffff;
+}
+.btn-editar{
+    margin-top: 25px;
+    color: #ffffff;
+    background-image:var(--img-navbar); 
+}
+.btn-editar:hover{
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* -------------------------------------USER------------------------------------ */
+/* ----------------------------------------------------------------------------- */
+/*---------------------------Fixture-----------------------------*/
+.divFixtureGoles{
+    width: 60px;
+    margin: 0 2px;
+    border: solid #000 1px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+.fixtureGoles{
+    font-weight: 600;
+}
+.resultado-row{
+    padding-top: 25px;
+}
+/*------------------------Fixture y fase-prode-------------------------*/
+.resultado-wrap{
+    padding: 2px 5px;
+    width: 100%;
+    margin: 0;
+}
+.div-bg{
+    border: rgb(255, 0, 0) solid 1px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 0;
+    /* color: rgb(0, 0, 0); */
+}
+.separacion{
+    margin: 25px 0;
+    width: 100%;
+}
+
+/*------------------------Fixture - octavos-------------------------*/
+.titulo-octavos{
+    margin: 30px 0;
+}
+.octavos{
+    width: 60px;    
+    border: solid #000 1px;
+    background-color: #fff;
+    border-radius: 3px;
+}

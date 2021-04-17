@@ -1,0 +1,14 @@
+11/07/2020 14:45:05:	Error 	
+17/12/2020 10:35:28:	Error 1064	You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''2018)' at line 2
+17/12/2020 10:41:28:	Error 1064	You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''2018)' at line 2
+03/01/2021 10:41:57:	Error 1064	You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@salome.com' at line 1
+03/01/2021 10:42:54:	Error 1064	You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@salome.com' at line 1
+16/01/2021 19:11:31:	Error 1054	Unknown column 'id_usere' in 'where clause'
+16/01/2021 19:13:11:	Error 1054	Unknown column 'id_usere' in 'where clause'
+16/01/2021 19:19:46:	Error 1054	Unknown column 'id_usere' in 'where clause'
+16/01/2021 19:20:13:	Error 1054	Unknown column 'id_usere' in 'where clause'
+16/01/2021 19:20:15:	Error 1054	Unknown column 'id_usere' in 'where clause'
+16/01/2021 19:20:26:	Error 1054	Unknown column 'id_usere' in 'where clause'
+16/01/2021 19:20:27:	Error 1054	Unknown column 'id_usere' in 'where clause'
+16/01/2021 19:20:29:	Error 1054	Unknown column 'id_usere' in 'where clause'
+16/01/2021 19:22:44:	Error 1054	Unknown column 'id_usere' in 'where clause'
