@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $penales2 = $_POST['penales2'] ?? '';
     
 
-    include 'nos-semis-editar-validar.php';
+    include 'nos-editar-validar.php';
     include 'nos-semis-editar-DB.php';
     include 'nos-fixture-finales.php';
     
