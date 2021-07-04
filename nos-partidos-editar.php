@@ -59,9 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
    
     include 'nos-partidos-editar-validar.php';
-    include 'nos-partidos-editar-DB.php';
-    include 'nos-clasificacion.php';
-    include 'nos-fixture-octavos.php';
+    if ($errores == '') {
+        include 'nos-partidos-editar-DB.php';
+        include 'nos-clasificacion.php';
+        include 'nos-fixture-octavos.php';
+    }else {
+        include 'errores.php';        
+    }
 }
 
 include 'nos-partidos-editar-form.php';

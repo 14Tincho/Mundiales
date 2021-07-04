@@ -61,9 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
     include 'nos-editar-validar.php';
-    include 'nos-finales-editar-DB.php';
-    
-    
+    if ($errores == '') {
+        include 'nos-finales-editar-DB.php';
+    }else{
+        include 'errores.php';
+    }
 }
 
 include 'nos-finales-editar-form.php';

@@ -20,10 +20,10 @@ $goles2 = mysqli_real_escape_string($link, $goles2);
 $penales1 = mysqli_real_escape_string($link, $penales1);
 $penales2 = mysqli_real_escape_string($link, $penales2);
 
-if ($goles1 !== $goles2) {
-    $penales1 = "NULL";
-    $penales2 = "NULL";
-}
+    if ($goles1 !== $goles2) {
+        $penales1 = "NULL";
+        $penales2 = "NULL";
+    }
     $sql = "UPDATE octavos SET goles = $goles1, penales = $penales1 WHERE nropartido = $nropartido AND posicion = 1";
     $rs = mysqli_query($link, $sql);
 

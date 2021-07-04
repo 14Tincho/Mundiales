@@ -59,10 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $penales1 = $_POST['penales1'] ?? '';
     $penales2 = $_POST['penales2'] ?? '';
     
-
     include 'nos-editar-validar.php';
-    include 'nos-cuartos-editar-DB.php';
-    include 'nos-fixture-semis.php';
+    if ($errores == '') {
+        include 'nos-cuartos-editar-DB.php';
+        include 'nos-fixture-semis.php';
+    }else {
+        include 'errores.php';
+    }
     
 }
 

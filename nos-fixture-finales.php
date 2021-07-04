@@ -5,7 +5,6 @@ $anio = ANO;
 
 $sql = "DELETE FROM finales WHERE anio = $anio";
 $rs = mysqli_query($link, $sql);
-var_dump($sql);
 
 
 // voy barriendo tabla semis y $h es igual nroPartidos

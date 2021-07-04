@@ -63,8 +63,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
     include 'nos-editar-validar.php';
-    include 'nos-octavos-editar-DB.php';
-    include 'nos-fixture-cuartos.php';
+    if ($errores == '') {
+        include 'nos-octavos-editar-DB.php';
+        include 'nos-fixture-cuartos.php';
+    }else {
+        include 'errores.php';
+    }
 }
 include 'nos-octavos-editar-form.php';
 include 'footer.php';
