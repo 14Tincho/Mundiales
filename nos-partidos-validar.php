@@ -85,13 +85,13 @@ $errores .= " El numero de partidos '$nropartido' ya existe 8 veces .<br>";
 
 
 
-// ---------------Goles--------------
-if ($goles1 > 31 || $goles1 < 0) {
-    $errores .= 'Los goles del primer equipo debe ser menor o igual a 31 y positivos.<br>';
-} 
-if ($goles2 > 31 || $goles2 < 0) {
-    $errores .= 'Los goles del segundo equipo debe ser menor o igual a 31 y positivos.<br>';
-}
+// // ---------------Goles--------------
+// if ($goles1 > 31 || $goles1 < 0) {
+//     $errores .= 'Los goles del primer equipo debe ser menor o igual a 31 y positivos.<br>';
+// } 
+// if ($goles2 > 31 || $goles2 < 0) {
+//     $errores .= 'Los goles del segundo equipo debe ser menor o igual a 31 y positivos.<br>';
+// }
 
 // agarra el GOTO de equipos
 abajo1:;
