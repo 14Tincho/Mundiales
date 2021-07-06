@@ -63,6 +63,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         include 'nos-partidos-editar-DB.php';
         include 'nos-clasificacion.php';
         include 'nos-fixture-octavos.php';
+        // include 'nos-fixture-cuartos.php';
+        // include 'nos-fixture-semis.php';
+        // include 'nos-fixture-finales.php';
     }else {
         include 'errores.php';        
     }

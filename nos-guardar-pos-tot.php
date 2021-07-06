@@ -412,7 +412,7 @@ if($union[0] == $id_usuarioFin){
 $puntostotales = $union[1] + $union[2] + $union[3] + $union[4] + $union[5];
 
 // Grabo la tabla de posiciones
-$pedo = '';
+$error = '';
 $sql = "SELECT * FROM posiciontotales WHERE id_user = '$union[0]' AND anio = $anio;";
     $rs = mysqli_query($link,$sql);
     
@@ -432,9 +432,9 @@ $sql = "SELECT * FROM posiciontotales WHERE id_user = '$union[0]' AND anio = $an
         $affected = mysqli_affected_rows($link);
         var_dump($affected);
 
-        if (mysqli_affected_rows($link)==0) {
-            $pedo = 'No se encontro el registro a actualizar.';
-            $pedoClase = 'alert-danger';
+        if (mysqli_affected_rows($link) == 0) {
+            $error = 'No se encontro el registro a actualizar.';
+            $errorClase = 'alert-danger';
             goto abajo6;
         }
 
@@ -451,12 +451,12 @@ $sql = "SELECT * FROM posiciontotales WHERE id_user = '$union[0]' AND anio = $an
             // die($mensaje_usuario);
             
             // LO QUE ESTA ESCRITO A CONTINUACION ES UNA INVENCION MIA, NO TENERLE TANTA CONFIANZA
-            $pedo = 'No se pudo actualizar la tabla de posiciones (ver el archivo log_errores.txt).';
-            $pedoClase = 'alert-danger';
+            $error = 'No se pudo actualizar la tabla de posiciones (ver el archivo log_errores.txt).';
+            $errorClase = 'alert-danger';
             goto abajo6;
         }else{
-            $pedo = 'Se actualizo correctamente la tabla de posiciones';
-            $pedoClase = 'alert-success';
+            $error = 'Se actualizo correctamente la tabla de posiciones';
+            $errorClase = 'alert-success';
         }
 
 
@@ -488,19 +488,17 @@ $sql = "SELECT * FROM posiciontotales WHERE id_user = '$union[0]' AND anio = $an
             // die($mensaje_usuario);
             
             // LO QUE ESTA ESCRITO A CONTINUACION ES UNA INVENCION MIA, NO TENERLE TANTA CONFIANZA
-            $pedo = 'No se pudo insertar en la tabla de posiciones (ver el archivo log_errores.txt).';
-            $pedoClase = 'alert-danger';
+            $error = 'No se pudo insertar en la tabla de posiciones (ver el archivo log_errores.txt).';
+            $errorClase = 'alert-danger';
             goto abajo6;
         }else{
-            $pedo = 'Se actualizo correctamente la tabla de posiciones';
-            $pedoClase = 'alert-success';
+            $error = 'Se actualizo correctamente la tabla de posiciones';
+            $errorClase = 'alert-success';
         }
 
     }
 };
     mysqli_close($link);
-    // $pedo = 'puto';
-    // header('Location: nos-index.php');
 
 abajo6:;
 $titulo = 'Mundial ' . SEDE . ' ' . ANO;

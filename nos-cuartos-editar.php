@@ -63,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($errores == '') {
         include 'nos-cuartos-editar-DB.php';
         include 'nos-fixture-semis.php';
+        // include 'nos-fixture-finales.php';
     }else {
         include 'errores.php';
     }

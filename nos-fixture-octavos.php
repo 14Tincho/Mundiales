@@ -6,12 +6,18 @@ $anio = ANO;
 
 $sql = "DELETE FROM octavos WHERE anio = $anio";
 $rs = mysqli_query($link, $sql);
-
+$sql = "DELETE FROM cuartos WHERE anio = $anio";
+$rs = mysqli_query($link, $sql);
+$sql = "DELETE FROM semis WHERE anio = $anio";
+$rs = mysqli_query($link, $sql);
+$sql = "DELETE FROM finales WHERE anio = $anio";
+$rs = mysqli_query($link, $sql);
 
 $sql = "SELECT
 c.id_equipo,
 c.gf,
 c.dg,
+c.pj,
 c.pts,
 c.anio,
 e.grupo,
@@ -20,7 +26,7 @@ e.nombre equipo
 FROM
 clasificacion c
 LEFT JOIN equipos e ON e.id_equipo = c.id_equipo
-WHERE c.anio = $anio
+WHERE c.anio = $anio AND c.pj = 3
 ORDER BY e.grupo , c.pts DESC , c.dg DESC, c.gf DESC;";
 
 $rs = mysqli_query($link, $sql);

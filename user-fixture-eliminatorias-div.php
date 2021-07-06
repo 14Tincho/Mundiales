@@ -97,7 +97,6 @@
 
 
 <!-- *****************************CUARTOS***************************** -->
-        <h2 class="text-white col-12 titulo-octavos">Cuartos</h2>
     <?php 
         $anio = ANO;
         include 'conexion.php';
@@ -117,6 +116,10 @@
         if (!$rs) {
             header('Location: pagina-error.php?error=2 & detalle=Error en la consulta');                    
             die;
+        }
+        $fila = mysqli_num_rows($rs);
+        if ($fila != 0) {
+            ?><h2 class="text-white col-12 titulo-octavos">Cuartos</h2><?php
         }
         mysqli_close($link);
             
@@ -168,7 +171,6 @@
         <?php endwhile;?>
 
     <!-- *****************************SEMIS***************************** -->
-    <h2 class="text-white col-12 titulo-octavos">Semifinales</h2>
     <?php 
         $anio = ANO;
         include 'conexion.php';
@@ -188,6 +190,10 @@
         if (!$rs) {
             header('Location: pagina-error.php?error=2 & detalle=Error en la consulta');                    
             die;
+        }
+        $fila = mysqli_num_rows($rs);
+        if ($fila != 0) {
+            ?><h2 class="text-white col-12 titulo-octavos">Semifinales</h2><?php
         }
         mysqli_close($link);
             

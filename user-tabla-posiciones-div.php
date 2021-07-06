@@ -23,19 +23,19 @@ if (mysqli_num_rows($rs) == 0 ) {
     die;
 }
 ?>
-<div class="col-xl-12 table-responsive-sm">
+<div class="col-xl-12 table-responsive">
 <h3 class="text-white text-left col-12">General</h3>
     <table class="table table-danger table-striped">
         <thead>
             <tr>
                 <th class="text-center" scope="col">Posicion</th>
                 <th class="text-center" scope="col">Usuario</th>
-                <th class="text-center" scope="col">Puntos Totales</th>
-                <th class="text-center" scope="col">Puntos Fase</th>
-                <th class="text-center" scope="col">Puntos Octavos</th>
-                <th class="text-center" scope="col">Puntos Cuartos</th>
-                <th class="text-center" scope="col">Puntos Semis</th>
-                <th class="text-center" scope="col">Puntos Finales</th>
+                <th class="text-center" scope="col">Total</th>
+                <th class="text-center" scope="col">Fase</th>
+                <th class="text-center" scope="col">Octavos</th>
+                <th class="text-center" scope="col">Cuartos</th>
+                <th class="text-center" scope="col">Semis</th>
+                <th class="text-center" scope="col">Final</th>
             </tr>
         </thead>
 

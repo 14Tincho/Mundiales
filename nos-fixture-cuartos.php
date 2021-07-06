@@ -5,7 +5,10 @@ $anio = ANO;
 
 $sql = "DELETE FROM cuartos WHERE anio = $anio";
 $rs = mysqli_query($link, $sql);
-
+$sql = "DELETE FROM semis WHERE anio = $anio";
+$rs = mysqli_query($link, $sql);
+$sql = "DELETE FROM finales WHERE anio = $anio";
+$rs = mysqli_query($link, $sql);
 
 // voy barriendo tabla octavos y $h es igual nroPartidos
 $i = 0;
